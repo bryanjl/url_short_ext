@@ -7,18 +7,14 @@
         "service_worker": "background.js"
     },
     "action": {
-        "default_popup": ""
+        "default_popup": "./src/html/popup.html"
     },
     "options_page": "",
     "permissions": [
-        ""
+        "tabs",
+        "storage"
     ],
     "host_permissions": [
         "<all_urls>"
-    ],
-    "icons": {
-        "16": "",
-        "48": "",
-        "128": ""
-    }
+    ]
 }
