@@ -1,0 +1,334 @@
+@use 'variables' as *;
+
+html {
+  width: 30rem;
+  height: 100%;
+}
+
+.material-icons-round {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+.merge {
+  font-size: 2.4rem;
+}
+.popup {
+  width: 100%;
+  position: relative;
+
+  header {
+    position: relative;
+  }
+
+  &__header {
+    text-align: center;
+    padding: 1rem 0;
+    font-weight: 600;
+    background-color: $secondary-light;
+    box-shadow: 0 -2px 15px 2px rgba($shadow, 0.3);
+    clip-path: inset(0 0 -100px 0);
+
+    .head__span {
+      color: $text-dark;
+      &--1 {
+        text-transform: uppercase;
+        color: $primary-light;
+        font-size: 3rem;
+        font-style: oblique;
+        letter-spacing: -0.2rem;
+      }
+    }
+
+    .arrow {
+      position: absolute;
+      left: 45%;
+      color: $text-dark;
+
+      &__left {
+        top: 2px;
+      }
+
+      &__right {
+        bottom: 0;
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 1.4rem;
+    padding-bottom: 1.4rem;
+    justify-content: center;
+
+    &--header {
+      color: $text-dark;
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: bold;
+      text-align: left;
+      margin-left: 0.8rem;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &--origin {
+      display: flex;
+      margin-bottom: 4rem;
+      height: 3rem;
+    }
+
+    &--short {
+      display: flex;
+      margin-bottom: 1rem;
+      height: 3rem;
+    }
+  }
+
+  &__url {
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    background-color: rgba($white, 0.6);
+    padding: 0.5rem;
+    padding-left: 1rem;
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s;
+    box-shadow: 0 1px 10px 0px rgba($shadow, 0.3);
+
+    border: none;
+    border-radius: 1rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 2px 3px $primary-light;
+    }
+  }
+
+  &__btn {
+    background-color: $text-dark;
+    width: 5rem;
+    height: 100%;
+    margin-left: 0.5rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    box-shadow: 0 3px 8px 0 rgba($shadow, 0.3);
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 1rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    transition: all 0.2s;
+
+    p {
+      z-index: 2;
+      color: $white;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      transition: all 0.5s;
+    }
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: $primary-light;
+      position: absolute;
+      top: 60px;
+      left: 0px;
+      transition: all 0.5s ease;
+    }
+
+    &:hover::before {
+      top: 0;
+    }
+
+    &--short:hover,
+    &--copy:hover {
+      p {
+        color: $text-dark;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
+
+    &:active {
+      box-shadow: none;
+      transform: translateY(2px);
+    }
+  }
+}
+
+//
+//
+//
+//
+// <----------- LIGHT MODE COLORS ----------->
+//
+//
+//
+//
+@media (prefers-color-scheme: light) {
+  .popup {
+    background-image: url(/img/wave-haikei.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: unset;
+    &__header {
+      background-color: $secondary-light;
+
+      .head__span {
+        color: $text-dark;
+
+        &--1 {
+          color: $primary-light;
+        }
+      }
+
+      .arrow {
+        color: $text-dark;
+      }
+    }
+
+    &__container {
+      &--header {
+        color: $text-dark;
+      }
+    }
+
+    &__url {
+      background-color: rgba($white, 0.6);
+      box-shadow: 0 1px 10px 0px rgba($shadow, 0.3);
+
+      border: 1px solid $gray-med;
+
+      &:focus {
+        box-shadow: 0 0 2px 3px $primary-light;
+      }
+    }
+
+    &__btn {
+      background-color: $text-dark;
+      box-shadow: 0 3px 8px 0 rgba($shadow, 0.3);
+
+      p {
+        color: $white;
+      }
+
+      &::before {
+        background-color: $primary-light;
+      }
+
+      &--short:hover,
+      &--copy:hover {
+        p {
+          color: $text-dark;
+        }
+      }
+    }
+  }
+}
+
+//
+//
+//
+//
+// <----------- DARK MODE COLORS ----------->
+//
+//
+//
+//
+@media (prefers-color-scheme: dark) {
+  .popup {
+    background-image: url(/img/wave-dark.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: unset;
+    &__header {
+      background-color: $primary-dark;
+
+      .head__span {
+        color: $text-med;
+
+        &--1 {
+          color: $secondary-dark;
+        }
+      }
+
+      .arrow {
+        color: $secondary-dark;
+      }
+    }
+
+    &__container {
+      &--header {
+        color: $text-med;
+      }
+    }
+
+    &__url {
+      background-color: rgba($white, 0.6);
+      box-shadow: 0 1px 10px 0px rgba($shadow, 0.3);
+
+      // border: 1px solid $gray-med;
+
+      &:focus {
+        box-shadow: 0 0 2px 3px $secondary-dark;
+      }
+    }
+
+    &__btn {
+      background-color: $secondary-dark;
+      box-shadow: 0 3px 8px 0 rgba($shadow, 0.3);
+
+      p {
+        color: $text-dark;
+      }
+
+      &::before {
+        background-color: $gray-med;
+      }
+
+      &--short:hover,
+      &--copy:hover {
+        p {
+          color: $text-dark;
+        }
+      }
+    }
+
+    &__links {
+      color: $text-light;
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      padding: 0 2rem;
+      text-align: center;
+
+      &--style {
+        text-decoration: underline;
+        color: $secondary-dark;
+        font-weight: 700;
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: $shadow;
+        }
+      }
+    }
+  }
+}
