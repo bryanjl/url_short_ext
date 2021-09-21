@@ -1,0 +1,11 @@
+{
+  "name": "url_short_ext",
+  "version": "1.0.0",
+  "description": "A chrome extension for shortening URLs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Branden Evans & Bryan Lilly",
+  "license": "ISC"
+}

@@ -1,0 +1,24 @@
+{
+    "name": "URL Shortener",
+    "description": "A Chrome extension to quickly shorten a URL",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": ""
+    },
+    "options_page": "",
+    "permissions": [
+        ""
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "icons": {
+        "16": "",
+        "48": "",
+        "128": ""
+    }
+}
