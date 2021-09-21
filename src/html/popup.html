@@ -1,1 +1,74 @@
-Popup page
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/css/style.css" />
+  </head>
+  <body>
+    <!-- FULL POPUP CONTENT CONTAINER -->
+    <div class="popup">
+      <header>
+        <!-- HEADER CONTENT -->
+        <h1 class="popup__header">
+          <span class="head__span head__span--1">URL</span>
+          <span class="head__span head__span--2">Shortener</span>
+          <p class="arrow arrow__left">&larr;</p>
+          <p class="arrow arrow__right">&rarr;</p>
+        </h1>
+      </header>
+
+      <main>
+        <section class="popup__container">
+          <label for="origin-url">
+            <h2 class="popup__container--header">Original URL</h2>
+          </label>
+          <div class="popup__container--origin">
+            <input
+              type="text"
+              class="popup__url popup__url--origin"
+              name="origin-url"
+              id="origin-url"
+              value="Placeholder"
+            />
+
+            <div class="popup__btn popup__btn--short" onclick="">
+              <p><span class="material-icons-round merge">&#xe915</span></p>
+            </div>
+          </div>
+
+
+          <!-- SHORTENED OUTPUT - CONTAINER FOR INPUT AND BUTTON -->
+          <label for="copy-url">
+            <h2 class="popup__container--header">Short URL</h2>
+          </label>
+          <div class="popup__container--short">
+            <input
+              type="text"
+              class="popup__url popup__url--short"
+              id="copy-url"
+              name="copy-url"
+              value="Placeholder"
+            />
+            <!-- ADD SCRIPTS INTO PLACEHOLDER VALUE ATTRIBUTE ABOVE -->
+
+            <div class="popup__btn popup__btn--copy" onclick="">
+              <p><span class="material-icons-round">&#xe14d</span></p>
+            </div>
+          </div>
+
+        <p class="popup__links">
+          Already a member? <a href="login.html" class="popup__links--style">Sign in</a>. New user? <a href="register.html" class="popup__links--style" target="_blank">Register</a> for free.
+        </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
