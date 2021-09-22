@@ -16,5 +16,10 @@
     ],
     "host_permissions": [
         "<all_urls>"
-    ]
+    ],
+    "icons": {
+        "16": "./img/url_short_icons/url_16.png",
+        "48": "./img/url_short_icons/url_48.png",
+        "128": "./img/url_short_icons/url_128.png"
+    }
 }

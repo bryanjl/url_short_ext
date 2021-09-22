@@ -1,65 +1,56 @@
-const axios = require('axios');
+//Get current URL from tab
+chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+    let url = tabs[0].url;
+    // console.log(url);
+    document.getElementById('origin-url').value = url;
+});
 
-const register = () => {
-    let url = 'https://urlshortenapi.herokuapp.com/auth/register';
-    let userData = {
-        username: 'abryanja1',
-        password: 123456
-    }
-    axios.post(url, userData)
-        .then((res) => {
-            console.log(res.data.token);
-        });
-}
-
-const login = () => {
-    let url = 'https://urlshortenapi.herokuapp.com/auth/login';
-    let userData = {
-        username: 'bryanja1',
-        password: "123456"
-    }
-    // userData = JSON.stringify(userData);
-    axios.post(url, userData)
-        .then((res) => {
-            console.log(res);
-        });
-}
-
-const getCurrentUser = () => {
-    let url = 'https://urlshortenapi.herokuapp.com/auth/getme';
-    let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDk4NDgxMWQ5MjNlMDAwNGE3YjMxNiIsImlhdCI6MTYzMjIwODQ0M30.QKGyPCK3sh1ZIM46-CPmTAAcLJfYYbRPsxK78idv1Wc';
-
-    axios.get(url, {
-        headers: {
-            "Authorization": `Bearer ${token}`
-        }
-    })
-        .then((res) => {
-            console.log(res);
-        })
-}
 
 const shortenUrl = () => {
     let url = 'https://urlshortenapi.herokuapp.com/';
-    let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDk4NDgxMWQ5MjNlMDAwNGE3YjMxNiIsImlhdCI6MTYzMjIwODQ0M30.QKGyPCK3sh1ZIM46-CPmTAAcLJfYYbRPsxK78idv1Wc';
-    let originalUrl = {
-            url: "www.google.com"
-        }
 
+    let originUrl = document.getElementById('origin-url').value;
+
+    // console.log(originUrl);
+
+    // let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDk4NDgxMWQ5MjNlMDAwNGE3YjMxNiIsImlhdCI6MTYzMjIwODQ0M30.QKGyPCK3sh1ZIM46-CPmTAAcLJfYYbRPsxK78idv1Wc';
+    
     let headers = {
-        "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json"
     }
 
-    axios.post(url, originalUrl,{
-        headers: headers
+    fetch(url, {
+        method: 'POST',
+
+        body: JSON.stringify({
+            url: originUrl
+        }),
+
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
     })
-        .then((res) => {
-            console.log(res);
-        })
+    .then(response => response.json())
+
+    .then(json => {
+        // console.log(`https://urlshortenapi.herokuapp.com/${json.data.short}`);
+        document.getElementById('copy-url').value = `https://urlshortenapi.herokuapp.com/${json.data.short}`;
+    });
 }
 
-// register();
-// login();
-getCurrentUser();
-// shortenUrl();
+const copyToClipboard = () => {
+    let urlToCopy = document.getElementById('copy-url').value;
+
+    navigator.clipboard.writeText(urlToCopy);
+}
+
+//copy to clipboard button event listener
+let copyUrlToClipBtn = document.getElementById('copyToClipBtn');
+copyUrlToClipBtn.addEventListener('click', copyToClipboard);
+
+//shorten url btn event listener
+let submitBtn = document.getElementById('submitBtn');
+submitBtn.addEventListener('click', shortenUrl);
+
+
