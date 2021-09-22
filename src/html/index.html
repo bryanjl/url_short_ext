@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener | Home</title>
+  </head>
+  <body>
+    <div class="home">
+      <!-------------------- HEADER LOGO ---------------------->
+      <div class="home__header-container">
+        <header class="home__header">
+          <h1 class="home__header--logo">
+            <span class="head__span head__span--1">URL</span>
+            <span class="head__span head__span--2">Shortener</span>
+            <p class="arrow arrow__left">&larr;</p>
+            <p class="arrow arrow__right">&rarr;</p>
+          </h1>
+        </header>
+      </div>
+      <!----------------- END - HEADER LOGO ------------------->
+
+      <!------------------- WELCOME/LOGOUT -------------------->
+      <!-- Hidden before login -->
+      <div class="home__welcome-logout">
+        <p class="home__welcome-logout--text">Welcome, "placeholder."</p>
+        <a href="" class="home__welcome-logout--btn">Logout</a>
+      </div>
+      <!--------------- END - WELCOME/LOGOUT ------------------>
+
+      <!----------------------- LOGIN ------------------------->
+      <!-- Hidden after login -->
+      <div class="home__welcome-login">
+        <form action="#" class="login-form">
+          <label for="login-form__email"
+            >Email:
+            <input
+              type="email"
+              class="login-form__user"
+              id="login-form__email"
+            />
+          </label>
+
+          <label for="login-form__password"
+            >Password:
+            <input
+              type="password"
+              class="login-form__pass"
+              id="login-form__password"
+            />
+          </label>
+
+          <button class="login-form__button">Login</button>
+        </form>
+      </div>
+      <!-------------------- END - LOGIN ---------------------->
+
+      <nav class="home__nav">
+        <ol class="nav__list">
+          <li class="nav__list-item"><a href=""></a></li>
+        </ol>
+      </nav>
+    </div>
+  </body>
+</html>

@@ -44,15 +44,15 @@ html {
 
     .arrow {
       position: absolute;
-      left: 45%;
+      right: 13.9rem;
       color: $text-dark;
 
       &__left {
-        top: 2px;
+        top: 1rem;
       }
 
       &__right {
-        bottom: 0;
+        bottom: 0.5rem;
       }
     }
   }
@@ -171,6 +171,26 @@ html {
       transform: translateY(2px);
     }
   }
+
+  &__links {
+    color: $text-light;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    padding: 0 2rem;
+    text-align: center;
+
+    &--style {
+      text-decoration: underline;
+      color: $secondary-dark;
+      font-weight: 700;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $shadow;
+      }
+    }
+  }
 }
 
 //
@@ -237,6 +257,20 @@ html {
       &--copy:hover {
         p {
           color: $text-dark;
+        }
+      }
+    }
+
+    &__links {
+      color: $text-dark;
+
+      &--style {
+        color: $text-dark;
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: $primary-light;
         }
       }
     }
