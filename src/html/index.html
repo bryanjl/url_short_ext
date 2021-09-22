@@ -24,7 +24,7 @@
       <!------------------- WELCOME/LOGOUT -------------------->
       <!-- Hidden before login -->
       <div class="home__welcome-logout">
-        <p class="home__welcome-logout--text">Welcome, "placeholder."</p>
+        <h2 class="home__welcome-logout--text">Welcome, "placeholder."</h2>
         <a href="" class="home__welcome-logout--btn">Logout</a>
       </div>
       <!--------------- END - WELCOME/LOGOUT ------------------>
@@ -56,11 +56,53 @@
       </div>
       <!-------------------- END - LOGIN ---------------------->
 
-      <nav class="home__nav">
-        <ol class="nav__list">
-          <li class="nav__list-item"><a href=""></a></li>
-        </ol>
-      </nav>
+      <div class="grid-container">
+        <!-------------------- NAVIGATION ----------------------->
+        <nav class="home__nav">
+          <ul class="nav__list">
+            <li class="nav__list-item"><a href="#">Home</a></li>
+          </ul>
+        </nav>
+        <!----------------- END - NAVIGATION -------------------->
+
+        <!------------------- MAIN CONTENT ---------------------->
+        <h2 class="home__about">About</h2>
+        <p class="home__about--text">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam fugiat
+          neque officia cum eligendi repellendus pariatur a nobis, sed
+          reiciendis!
+        </p>
+        <h2 class="home__shorten">Shorten URL's</h2>
+        <!----- SHORTEN FORM ----->
+        <form action="#" class="short-form">
+          <label for="short-form__origin"
+            >Original URL:
+            <input
+              type="email"
+              class="login-form__user"
+              id="short-form__origin"
+            />
+          </label>
+          <button class="short-form__button">$</button>
+
+          <label for="short-form__short"
+            >Short URL:
+            <input
+              type="password"
+              class="login-form__pass"
+              id="short-form__short"
+            />
+          </label>
+          <button class="login-form__button">$</button>
+        </form>
+        <!-- END - SHORTEN FORM -->
+        <!---------------- END - MAIN CONTENT ------------------->
+      </div>
+      <!--------------------- FOOTER ------------------------>
+      <footer class="home__footer">
+        <a href="#" class="home__footer--link">Tos</a>
+        <a href="#" class="home__footer--link">Privacy</a>
+      </footer>
     </div>
   </body>
 </html>
