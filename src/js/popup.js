@@ -15,6 +15,8 @@ const shortenUrl = () => {
 
     // let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDk4NDgxMWQ5MjNlMDAwNGE3YjMxNiIsImlhdCI6MTYzMjIwODQ0M30.QKGyPCK3sh1ZIM46-CPmTAAcLJfYYbRPsxK78idv1Wc';
     
+    //authorization header > dynamic build > add to headers object
+
     let headers = {
         "Content-Type": "application/json"
     }
@@ -27,8 +29,7 @@ const shortenUrl = () => {
         }),
 
         headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+            "Content-Type": "application/json", 
         }
     })
     .then(response => response.json())
