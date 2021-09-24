@@ -1,0 +1,221 @@
+@use 'variables' as *;
+
+.body-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url(/img/wave-haikei-large.svg) no-repeat;
+  background-size: cover;
+  background-position: 0;
+}
+
+.home__header-container {
+  width: 100%;
+}
+
+.home__header {
+  background-color: $gray-light;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 -2px 15px 2px rgba($shadow, 0.3);
+
+  &--logo {
+    color: $text-dark;
+    width: fit-content;
+    padding: 1rem;
+    position: relative;
+    font-weight: 600;
+
+    .head__span {
+      font-size: 2.5rem;
+      &--1 {
+        text-transform: uppercase;
+        color: $primary-light;
+        font-size: 4rem;
+        font-style: oblique;
+        letter-spacing: -0.2rem;
+      }
+    }
+
+    .arrow {
+      position: absolute;
+      right: 10.2rem;
+      color: $text-dark;
+
+      &__left {
+        top: 0.7rem;
+      }
+
+      &__right {
+        bottom: 0.2rem;
+      }
+    }
+  }
+}
+
+// Main content container
+.home {
+  margin: 4rem 2rem;
+  background-color: rgba($shadow, 0.11);
+  padding: 2rem 0;
+  max-width: 100rem;
+  border-radius: 1rem;
+
+  // Layered box-shadow to create smooth effect
+  box-shadow: 0px 0px 1px rgba($shadow, 0.25);
+  box-shadow: 1px 1px 2px rgba($shadow, 0.25);
+  box-shadow: 2px 2px 4px rgba($shadow, 0.25);
+  box-shadow: 4px 4px 8px rgba($shadow, 0.25);
+  box-shadow: 8px 8px 16px rgba($shadow, 0.25);
+
+  &__welcome-logout {
+    // Display flex when visible, otherwise none.
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    display: none;
+    margin: 0 2rem;
+
+    &--text {
+      font-size: 2rem;
+    }
+
+    .welcome {
+      color: $primary-light;
+      font-weight: 600;
+    }
+
+    &--link {
+      font-size: 1.2rem;
+      color: $text-light;
+      background-color: $gray-dark;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      box-shadow: 0px 5px 6px 0px rgba($shadow, 0.3);
+      transition: background-color 0.5s, transform 0s;
+
+      &:hover {
+        background-color: $primary-light;
+      }
+
+      &:active,
+      &:focus {
+        transform: translateY(3px);
+        background-color: $primary-light;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &__welcome-login {
+    margin: 0 2rem 1rem;
+    font-size: 1.4rem;
+  }
+
+  .login-form {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    // display: none;
+
+    &__user,
+    &__pass {
+      margin-top: 0.3rem;
+      padding: 0.5rem;
+      outline: none;
+      border: none;
+      border-radius: 0.8rem;
+    }
+
+    &__button {
+      font-size: 1.2rem;
+      color: $text-light;
+      background-color: $gray-dark;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      box-shadow: 0px 5px 6px 0px rgba($shadow, 0.3);
+      transition: background-color 0.5s, transform 0s;
+
+      &:hover {
+        background-color: $primary-light;
+      }
+
+      &:active {
+        transform: translateY(3px);
+        background-color: $primary-light;
+        box-shadow: none;
+      }
+    }
+    &__p {
+      font-size: 1.2rem;
+      color: $text-dark;
+      text-align: right;
+      margin: 0 2rem 1rem;
+    }
+
+    &__register {
+      color: $text-dark;
+      text-underline-offset: 4px;
+      text-decoration-color: $primary-light;
+      font-weight: 600;
+
+      &:hover {
+        color: $primary-light;
+        text-underline-offset: 4px;
+        text-decoration-color: $text-dark;
+        font-weight: 600;
+      }
+    }
+  }
+
+  hr {
+    height: 2px;
+    margin: 0 2rem 2rem;
+    box-shadow: 0px 6px 12px 0px rgba($shadow, 0.3);
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  &__nav {
+    height: 100%;
+    width: 100%;
+    border-right: 2px groove;
+    font-size: 1.4rem;
+  }
+
+  .nav-list {
+    &__item {
+      text-decoration: none;
+      color: $text-dark;
+      width: fit-content;
+      padding: 0.5rem 0;
+      display: block;
+      width: 100%;
+      margin-top: -0.5rem;
+      padding-left: 1rem;
+      box-shadow: inset 2px 0 1px $gray-med;
+
+      background-image: linear-gradient(
+        to right,
+        transparent 50%,
+        $primary-light 50%
+      );
+      background-size: 200% 100%;
+      background-position: 200% 0%;
+
+      transition: all 0.3s ease-in;
+
+      &:hover {
+        background-position: 100% 0;
+      }
+    }
+  }
+}
