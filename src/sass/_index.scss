@@ -6,21 +6,16 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: url(/img/wave-haikei-large.svg) no-repeat center center fixed;
-  background-size: cover;
 
   .home__footer {
     width: 100%;
     padding: 1.5rem;
     margin-top: auto;
-    background-color: $gray-light;
     text-align: center;
-    color: $primary-light;
     font-size: 1.4rem;
     font-weight: 600;
 
     &--link {
-      color: $text-dark;
       text-transform: uppercase;
       font-style: oblique;
       font-size: 1rem;
@@ -29,7 +24,6 @@
 }
 
 .back-to-top {
-  background-color: $primary-light;
   width: 5rem;
   height: 5rem;
 
@@ -38,16 +32,22 @@
   left: 4rem;
 
   border-radius: 50%;
-  box-shadow: 2px 3px 10px 2px rgba($shadow, 0.3);
+  box-shadow: 2px 2px 10px 2px rgba($shadow, 0.3);
   cursor: pointer;
 
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
+  transition: all 0.3s;
+
+  &:focus,
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
 
   .material-icons-round {
-    color: $text-light;
     font-size: 2.5rem;
   }
 }
@@ -57,14 +57,12 @@
 }
 
 .home__header {
-  background-color: $gray-light;
   width: 100%;
   display: flex;
   justify-content: center;
   box-shadow: 0 -2px 15px 2px rgba($shadow, 0.3);
 
   &--logo {
-    color: $text-dark;
     width: fit-content;
     padding: 1rem;
     position: relative;
@@ -74,7 +72,6 @@
       font-size: 2.5rem;
       &--1 {
         text-transform: uppercase;
-        color: $primary-light;
         font-size: 4rem;
         font-style: oblique;
         letter-spacing: -0.2rem;
@@ -84,7 +81,6 @@
     .arrow {
       position: absolute;
       right: 10.2rem;
-      color: $text-dark;
 
       &__left {
         top: 0.7rem;
@@ -100,7 +96,6 @@
 // Main content container
 .home {
   margin: 4rem 2rem;
-  background-color: $gray-light;
   padding: 2rem 0;
   max-width: 100rem;
   border-radius: 1rem;
@@ -117,7 +112,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
-    //display: none;
+    display: none;
     margin: 0 2rem 2rem;
 
     &--text {
@@ -125,36 +120,39 @@
     }
 
     .welcome {
-      color: $primary-light;
       font-weight: 600;
     }
 
     &--link {
-      font-size: 1.2rem;
-      color: $text-light;
-      background-color: $gray-dark;
+      font-size: 1.4rem;
       padding: 0.5rem 1rem;
       text-decoration: none;
       border-radius: 0.5rem;
       box-shadow: 0px 5px 6px 0px rgba($shadow, 0.3);
       transition: background-color 0.5s, transform 0s;
 
-      &:hover {
-        background-color: $primary-light;
-      }
-
       &:active,
       &:focus {
         transform: translateY(3px);
-        background-color: $primary-light;
         box-shadow: none;
       }
     }
   }
 
   &__welcome-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 2rem 1rem;
     font-size: 1.4rem;
+
+    label {
+      line-height: 3rem;
+      margin-right: 1rem;
+    }
+    &--text {
+      color: $text-dark;
+    }
   }
 
   .login-form {
@@ -162,11 +160,10 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-end;
-    display: none;
+    //display: none;
 
     &__user,
     &__pass {
-      background-color: $gray-light2;
       margin-top: 0.3rem;
       margin-right: 2rem;
       padding: 0.7rem;
@@ -182,8 +179,6 @@
 
     &__button {
       font-size: 1.3rem;
-      color: $text-light;
-      background-color: $gray-dark;
       padding: 0.7rem 1rem;
       border: none;
       border-radius: 0.5rem;
@@ -191,39 +186,24 @@
       transition: background-color 0.5s, transform 0s;
       cursor: pointer;
 
-      &:hover {
-        background-color: $primary-light;
-      }
-
       &:active {
         transform: translateY(3px);
-        background-color: $primary-light;
         box-shadow: none;
       }
     }
     &__p {
       font-size: 1.2rem;
-      color: $text-dark;
-      text-align: right;
-      margin: 0 2rem 1rem;
-      display: none;
-
-      @media only screen and (min-width: 600px) {
-        text-align: center;
-      }
+      text-align: center;
+      margin: 0 2rem 2rem;
     }
 
     &__register {
-      color: $text-dark;
       text-decoration: none;
       font-weight: 600;
-      border-bottom: 2px solid $primary-light;
       padding-bottom: 2px;
       transition: 0.3s;
 
       &:hover {
-        color: $primary-light;
-        border-color: $text-dark;
         font-weight: 600;
       }
     }
@@ -245,16 +225,15 @@
     width: 100%;
     border-right: 2px groove;
     font-size: 1.4rem;
+    padding-left: 1px;
 
     &--header {
-      padding: 0.5rem 0 0.5rem;
-      margin: -0.2rem 0.3rem 0;
-      text-align: center;
+      padding: 0.6rem 0rem 0.2rem;
+      margin: -0.2rem 1rem 0;
+      text-align: left;
       font-size: 1.6rem;
-      color: $text-dark;
-      background-color: $gray-light2;
+      border-bottom: 2px solid;
       font-weight: 700;
-      box-shadow: 0 8px 10px -6px rgba($shadow, 0.3);
     }
   }
 
@@ -264,21 +243,19 @@
     margin-right: 1px;
     &__item {
       text-decoration: none;
-      color: $text-dark;
       display: block;
       width: 100%;
       overflow: hidden;
-      padding: 0.5rem 0 0.5rem 0.5rem;
+      padding: 0.5rem 0 0.5rem 0.8rem;
       margin-left: 1px;
-
-      box-shadow: inset 2px 0 1px 1px$gray-light;
+      margin-bottom: 2px;
 
       background-image: linear-gradient(
         to right,
         transparent 50%,
         $primary-light 50%
       );
-      background-size: 300% 100%;
+      background-size: 300% 200%;
       background-position: 300% 0%;
 
       transition: all 0.3s ease-in;
@@ -286,7 +263,6 @@
       &:hover,
       &:focus {
         background-position: 251% 0;
-        color: $text-light;
 
         &::after {
           content: '\2192';
@@ -305,7 +281,6 @@
 
     &--header {
       padding-bottom: 0.2rem;
-      border-bottom: 2px solid $primary-light;
       margin-right: 40%;
       margin-top: 2px;
       margin-bottom: 1rem;
@@ -343,7 +318,6 @@
   }
 
   .label {
-    color: $text-dark;
     display: block;
   }
 
@@ -354,7 +328,6 @@
   }
 
   &__short-form--origin {
-    background-color: $gray-light2;
     padding: 0.5rem 1rem;
     margin-bottom: 2rem;
     margin-right: 0.6rem;
@@ -383,7 +356,6 @@
   }
 
   &__short-form--short {
-    background-color: $gray-med2;
     padding: 0.5rem;
     margin-bottom: 2rem;
     margin-right: 0.6rem;
@@ -400,8 +372,6 @@
   }
 
   &__short-form--button {
-    background-color: $gray-dark;
-    color: $text-light;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -414,15 +384,385 @@
     box-shadow: 2px 4px 6px 0px rgba($shadow, 0.3);
     transition: background-color 0.5s, transform 0s;
 
+    &:active {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
+  }
+}
+
+//
+//
+//
+//
+// ------- Light Mode -------
+@media (prefers-color-scheme: light) {
+  .body-flex {
+    background: url(/img/wave-haikei-large.svg) no-repeat center center fixed;
+    background-size: cover;
+
+    .home__footer {
+      background-color: $gray-light;
+      color: $primary-light;
+
+      &--link {
+        color: $text-dark;
+      }
+    }
+  }
+
+  .back-to-top {
+    background-color: $primary-light;
+
+    .material-icons-round {
+      color: $text-light;
+    }
+
     &:hover {
-      background-color: $primary-light;
+      background-color: $gray-dark;
+
+      .material-icons-round {
+        color: $text-light;
+      }
+    }
+  }
+
+  .home__header {
+    background-color: $gray-light;
+
+    &--logo {
+      color: $text-dark;
+
+      .head__span {
+        &--1 {
+          color: $primary-light;
+        }
+      }
+
+      .arrow {
+        color: $text-dark;
+      }
+    }
+  }
+
+  // Main content container
+  .home {
+    background-color: $gray-light;
+
+    // Layered box-shadow to create smooth effect
+    box-shadow: 0px 0px 1px rgba($shadow, 0.25);
+    box-shadow: 1px 1px 2px rgba($shadow, 0.25);
+    box-shadow: 2px 2px 4px rgba($shadow, 0.25);
+    box-shadow: 4px 4px 8px rgba($shadow, 0.25);
+    box-shadow: 8px 8px 16px rgba($shadow, 0.25);
+
+    &__welcome-logout {
+      .welcome {
+        color: $primary-light;
+
+        &--text {
+          color: $text-dark;
+        }
+      }
+
+      &--link {
+        color: $text-light;
+        background-color: $gray-dark;
+
+        &:hover {
+          background-color: $primary-light;
+        }
+
+        &:active,
+        &:focus {
+          background-color: $primary-light;
+        }
+      }
+    }
+
+    .login-form {
+      &__user,
+      &__pass {
+        background-color: $gray-light2;
+      }
+
+      &__button {
+        color: $text-light;
+        background-color: $gray-dark;
+
+        &:hover {
+          background-color: $primary-light;
+        }
+
+        &:active {
+          background-color: $primary-light;
+        }
+      }
+      &__p {
+        color: $text-dark;
+      }
+
+      &__register {
+        color: $text-dark;
+        border-bottom: 2px solid $primary-light;
+
+        &:hover {
+          color: $primary-light;
+        }
+      }
+    }
+
+    &__nav {
+      &--header {
+        color: $text-dark;
+        border-color: $primary-light;
+      }
+    }
+
+    .nav-list {
+      &__item {
+        color: $text-dark;
+        box-shadow: inset 2px 0 1px 1px $gray-light;
+
+        background-image: linear-gradient(
+          to right,
+          transparent 50%,
+          $primary-light 50%
+        );
+
+        &:hover,
+        &:focus {
+          color: $text-light;
+        }
+      }
+    }
+
+    &__main-content {
+      &--header {
+        border-bottom: 2px solid $primary-light;
+        color: $text-dark;
+      }
+    }
+  }
+
+  .home {
+    .label {
       color: $text-dark;
     }
 
-    &:active {
-      transform: translateY(2px);
-      background-color: $primary-light;
-      box-shadow: none;
+    &__short-form--origin {
+      background-color: $gray-light2;
+    }
+
+    &__short-form--short {
+      background-color: $gray-med2;
+    }
+
+    &__short-form--button {
+      background-color: $gray-dark;
+      color: $text-light;
+
+      &:hover {
+        background-color: $primary-light;
+        color: $text-dark;
+      }
+
+      &:active {
+        background-color: $primary-light;
+      }
+    }
+  }
+}
+
+//
+//
+//
+//
+// ------- Dark Mode ------
+@media (prefers-color-scheme: dark) {
+  .body-flex {
+    background: url(/img/wave-haikei-large-dark.svg) no-repeat center center
+      fixed;
+    background-size: cover;
+
+    .home__footer {
+      background-color: $primary-dark;
+      color: $text-med;
+
+      &--link {
+        color: $secondary-dark;
+      }
+    }
+  }
+
+  .back-to-top {
+    background-color: $primary-light;
+
+    .material-icons-round {
+      color: $text-light;
+    }
+
+    &:hover {
+      background-color: $gray-med2;
+
+      .material-icons-round {
+        color: $text-dark;
+      }
+    }
+  }
+
+  .home__header {
+    background-color: $primary-dark;
+
+    &--logo {
+      color: $text-med;
+
+      .head__span {
+        &--1 {
+          color: $secondary-dark;
+        }
+      }
+
+      .arrow {
+        color: $secondary-dark;
+      }
+    }
+  }
+
+  // Main content container
+  .home {
+    background-color: $gray-dark;
+    box-shadow: none;
+
+    &__hr {
+      border-color: $text-dark;
+    }
+
+    &__welcome-logout {
+      &--text {
+        color: $text-med;
+      }
+      .welcome {
+        color: $secondary-dark;
+      }
+
+      &--link {
+        color: $text-dark;
+        background-color: $secondary-dark;
+
+        &:hover {
+          background-color: $gray-med2;
+        }
+
+        &:active,
+        &:focus {
+          background-color: $secondary-dark;
+        }
+      }
+    }
+
+    .login-form {
+      label {
+        color: $text-med;
+      }
+      &__user,
+      &__pass {
+        background-color: $gray-med2;
+      }
+
+      &__button {
+        color: $text-dark;
+        background-color: $secondary-dark;
+
+        &:hover {
+          background-color: $gray-med2;
+        }
+
+        &:active {
+          background-color: $secondary-dark;
+        }
+      }
+      &__p {
+        color: $text-med;
+      }
+
+      &__register {
+        color: $secondary-dark;
+        border-bottom: 2px solid $text-med;
+
+        &:hover {
+          color: $text-med;
+          border-color: $secondary-dark;
+        }
+      }
+    }
+
+    &__nav {
+      border-color: rgb(83, 82, 82);
+
+      &--header {
+        color: $text-med;
+        border-color: $secondary-dark;
+      }
+    }
+
+    .nav-list {
+      &__item {
+        color: $text-med;
+        box-shadow: inset 2px 0 1px 1px $gray-dark;
+
+        background-image: linear-gradient(
+          to right,
+          transparent 50%,
+          $secondary-dark 50%
+        );
+
+        &:hover,
+        &:focus {
+          color: $text-light;
+        }
+      }
+    }
+
+    &__main-content {
+      &--header {
+        color: $text-med;
+        border-bottom: 2px solid $secondary-dark;
+      }
+
+      &--text {
+        color: $text-med;
+      }
+    }
+  }
+
+  .home {
+    .label {
+      color: $text-med;
+    }
+
+    &__short-form--origin {
+      background-color: $gray-med2;
+      color: $text-dark;
+    }
+
+    &__short-form--short {
+      background-color: $gray-dark;
+      color: $text-med;
+    }
+
+    &__short-form--button {
+      background-color: $secondary-dark;
+      color: $text-light;
+
+      &:hover {
+        background-color: $gray-med2;
+        color: $text-dark;
+      }
+
+      &:active {
+        background-color: $secondary-dark;
+      }
     }
   }
 }
