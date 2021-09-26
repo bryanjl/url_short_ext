@@ -1,0 +1,428 @@
+@use 'variables' as *;
+
+.body-flex {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url(/img/wave-haikei-large.svg) no-repeat center center fixed;
+  background-size: cover;
+
+  .home__footer {
+    width: 100%;
+    padding: 1.5rem;
+    margin-top: auto;
+    background-color: $gray-light;
+    text-align: center;
+    color: $primary-light;
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    &--link {
+      color: $text-dark;
+      text-transform: uppercase;
+      font-style: oblique;
+      font-size: 1rem;
+    }
+  }
+}
+
+.back-to-top {
+  background-color: $primary-light;
+  width: 5rem;
+  height: 5rem;
+
+  position: fixed;
+  bottom: 4rem;
+  left: 4rem;
+
+  border-radius: 50%;
+  box-shadow: 2px 3px 10px 2px rgba($shadow, 0.3);
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+
+  .material-icons-round {
+    color: $text-light;
+    font-size: 2.5rem;
+  }
+}
+
+.home__header-container {
+  width: 100%;
+}
+
+.home__header {
+  background-color: $gray-light;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 -2px 15px 2px rgba($shadow, 0.3);
+
+  &--logo {
+    color: $text-dark;
+    width: fit-content;
+    padding: 1rem;
+    position: relative;
+    font-weight: 600;
+
+    .head__span {
+      font-size: 2.5rem;
+      &--1 {
+        text-transform: uppercase;
+        color: $primary-light;
+        font-size: 4rem;
+        font-style: oblique;
+        letter-spacing: -0.2rem;
+      }
+    }
+
+    .arrow {
+      position: absolute;
+      right: 10.2rem;
+      color: $text-dark;
+
+      &__left {
+        top: 0.7rem;
+      }
+
+      &__right {
+        bottom: 0.2rem;
+      }
+    }
+  }
+}
+
+// Main content container
+.home {
+  margin: 4rem 2rem;
+  background-color: $gray-light;
+  padding: 2rem 0;
+  max-width: 100rem;
+  border-radius: 1rem;
+
+  // Layered box-shadow to create smooth effect
+  box-shadow: 0px 0px 1px rgba($shadow, 0.25);
+  box-shadow: 1px 1px 2px rgba($shadow, 0.25);
+  box-shadow: 2px 2px 4px rgba($shadow, 0.25);
+  box-shadow: 4px 4px 8px rgba($shadow, 0.25);
+  box-shadow: 8px 8px 16px rgba($shadow, 0.25);
+
+  &__welcome-logout {
+    // Display flex when visible, otherwise none.
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    //display: none;
+    margin: 0 2rem 2rem;
+
+    &--text {
+      font-size: 2rem;
+    }
+
+    .welcome {
+      color: $primary-light;
+      font-weight: 600;
+    }
+
+    &--link {
+      font-size: 1.2rem;
+      color: $text-light;
+      background-color: $gray-dark;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      box-shadow: 0px 5px 6px 0px rgba($shadow, 0.3);
+      transition: background-color 0.5s, transform 0s;
+
+      &:hover {
+        background-color: $primary-light;
+      }
+
+      &:active,
+      &:focus {
+        transform: translateY(3px);
+        background-color: $primary-light;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &__welcome-login {
+    margin: 0 2rem 1rem;
+    font-size: 1.4rem;
+  }
+
+  .login-form {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-end;
+    display: none;
+
+    &__user,
+    &__pass {
+      background-color: $gray-light2;
+      margin-top: 0.3rem;
+      margin-right: 2rem;
+      padding: 0.7rem;
+      outline: none;
+      border: none;
+      border-radius: 0.8rem;
+      box-shadow: inset 2px 2px 6px 0 rgba($shadow, 0.3);
+
+      &:focus {
+        box-shadow: inset 0 0 3px 3px $primary-light;
+      }
+    }
+
+    &__button {
+      font-size: 1.3rem;
+      color: $text-light;
+      background-color: $gray-dark;
+      padding: 0.7rem 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      box-shadow: 0px 5px 6px 0px rgba($shadow, 0.3);
+      transition: background-color 0.5s, transform 0s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $primary-light;
+      }
+
+      &:active {
+        transform: translateY(3px);
+        background-color: $primary-light;
+        box-shadow: none;
+      }
+    }
+    &__p {
+      font-size: 1.2rem;
+      color: $text-dark;
+      text-align: right;
+      margin: 0 2rem 1rem;
+      display: none;
+
+      @media only screen and (min-width: 600px) {
+        text-align: center;
+      }
+    }
+
+    &__register {
+      color: $text-dark;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid $primary-light;
+      padding-bottom: 2px;
+      transition: 0.3s;
+
+      &:hover {
+        color: $primary-light;
+        border-color: $text-dark;
+        font-weight: 600;
+      }
+    }
+  }
+
+  hr {
+    height: 2px;
+    margin: 0 2rem 2rem;
+    box-shadow: 0px 6px 12px 0px rgba($shadow, 0.3);
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  &__nav {
+    height: 100%;
+    width: 100%;
+    border-right: 2px groove;
+    font-size: 1.4rem;
+
+    &--header {
+      padding: 0.5rem 0 0.5rem;
+      margin: -0.2rem 0.3rem 0;
+      text-align: center;
+      font-size: 1.6rem;
+      color: $text-dark;
+      background-color: $gray-light2;
+      font-weight: 700;
+      box-shadow: 0 8px 10px -6px rgba($shadow, 0.3);
+    }
+  }
+
+  .nav-list {
+    margin-top: 1rem;
+    overflow: hidden;
+    margin-right: 1px;
+    &__item {
+      text-decoration: none;
+      color: $text-dark;
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      padding: 0.5rem 0 0.5rem 0.5rem;
+      margin-left: 1px;
+
+      box-shadow: inset 2px 0 1px 1px$gray-light;
+
+      background-image: linear-gradient(
+        to right,
+        transparent 50%,
+        $primary-light 50%
+      );
+      background-size: 300% 100%;
+      background-position: 300% 0%;
+
+      transition: all 0.3s ease-in;
+
+      &:hover,
+      &:focus {
+        background-position: 251% 0;
+        color: $text-light;
+
+        &::after {
+          content: '\2192';
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+
+  &__main-content {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    line-height: 2rem;
+
+    &--header {
+      padding-bottom: 0.2rem;
+      border-bottom: 2px solid $primary-light;
+      margin-right: 40%;
+      margin-top: 2px;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    &--text {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.home {
+  .short-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    label {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 0.1rem;
+      margin-right: 0.5rem;
+      font-weight: bold;
+      margin-left: 0.8rem;
+    }
+  }
+
+  // Origin URL input/button
+  .form-icons {
+    font-size: 2.3rem;
+  }
+
+  .label {
+    color: $text-dark;
+    display: block;
+  }
+
+  &__short-form--origin-container {
+    display: flex;
+    margin-bottom: 4rem;
+    height: 2.8rem;
+  }
+
+  &__short-form--origin {
+    background-color: $gray-light2;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+    margin-right: 0.6rem;
+    width: 25rem;
+    height: 100%;
+    font-size: 1.2rem;
+
+    border: none;
+    border-radius: 1rem;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+
+    outline: none;
+    box-shadow: inset 2px 2px 6px 0 rgba($shadow, 0.3);
+
+    &:focus {
+      box-shadow: inset 0px 0 3px 3px $primary-light;
+    }
+  }
+
+  // Shortened URL input/button
+  &__short-form--short-container {
+    display: flex;
+    height: 2.8rem;
+    flex-direction: row;
+  }
+
+  &__short-form--short {
+    background-color: $gray-med2;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    margin-right: 0.6rem;
+    width: 25rem;
+    height: 100%;
+    font-size: 1.2rem;
+
+    border: none;
+    border-radius: 1rem;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+
+    box-shadow: inset 2px 2px 6px 0 rgba($shadow, 0.3);
+  }
+
+  &__short-form--button {
+    background-color: $gray-dark;
+    color: $text-light;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 4rem;
+
+    border: none;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    box-shadow: 2px 4px 6px 0px rgba($shadow, 0.3);
+    transition: background-color 0.5s, transform 0s;
+
+    &:hover {
+      background-color: $primary-light;
+      color: $text-dark;
+    }
+
+    &:active {
+      transform: translateY(2px);
+      background-color: $primary-light;
+      box-shadow: none;
+    }
+  }
+}

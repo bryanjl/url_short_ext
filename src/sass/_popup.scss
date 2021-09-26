@@ -1,7 +1,7 @@
 @use 'variables' as *;
 
 html {
-  width: 30rem;
+  width: 100%;
   height: 100%;
 }
 
@@ -16,11 +16,29 @@ html {
   font-size: 2.4rem;
 }
 .popup {
-  width: 100%;
+  width: 30rem;
   position: relative;
 
   header {
     position: relative;
+  }
+
+  .popup-settings {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2.5rem;
+    z-index: 3;
+    cursor: pointer;
+
+    .options-link {
+      color: $text-dark;
+      text-decoration: none;
+
+      &:hover {
+        color: $primary-light;
+      }
+    }
   }
 
   &__header {
@@ -44,15 +62,15 @@ html {
 
     .arrow {
       position: absolute;
-      left: 45%;
+      right: 13.9rem;
       color: $text-dark;
 
       &__left {
-        top: 2px;
+        top: 1rem;
       }
 
       &__right {
-        bottom: 0;
+        bottom: 0.5rem;
       }
     }
   }
@@ -77,12 +95,14 @@ html {
 
     &--origin {
       display: flex;
+      align-items: flex-end;
       margin-bottom: 4rem;
       height: 3rem;
     }
 
     &--short {
       display: flex;
+      align-items: flex-end;
       margin-bottom: 1rem;
       height: 3rem;
     }
@@ -99,11 +119,28 @@ html {
     transition: all 0.2s;
     box-shadow: 0 1px 10px 0px rgba($shadow, 0.3);
 
-    border: none;
+    border: 0px;
     border-radius: 1rem;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 
+    &--short {
+      box-sizing: border-box;
+      font-size: 1.2rem;
+      color: $text-light;
+      background-color: rgba(138, 138, 138, 0.8);
+      padding: 0.5rem;
+      padding-left: 1rem;
+      width: 100%;
+      height: 100%;
+      transition: all 0.2s;
+      box-shadow: 0 1px 10px 0px rgba($shadow, 0.3);
+
+      border: 0px;
+      border-radius: 1rem;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
     &:focus {
       outline: none;
       box-shadow: 0 0 2px 3px $primary-light;
@@ -113,7 +150,7 @@ html {
   &__btn {
     background-color: $text-dark;
     width: 5rem;
-    height: 100%;
+    height: 2.9rem;
     margin-left: 0.5rem;
     text-transform: capitalize;
     cursor: pointer;
@@ -132,34 +169,14 @@ html {
     transition: all 0.2s;
 
     p {
-      z-index: 2;
       color: $white;
       text-align: center;
       font-size: 1.2rem;
       font-weight: 600;
-      transition: all 0.5s;
     }
 
-    &::before {
-      content: '';
-      width: 100%;
-      height: 100%;
+    &:hover {
       background-color: $primary-light;
-      position: absolute;
-      top: 60px;
-      left: 0px;
-      transition: all 0.5s ease;
-    }
-
-    &:hover::before {
-      top: 0;
-    }
-
-    &--short:hover,
-    &--copy:hover {
-      p {
-        color: $text-dark;
-      }
     }
 
     &:not(:last-child) {
@@ -169,6 +186,26 @@ html {
     &:active {
       box-shadow: none;
       transform: translateY(2px);
+    }
+  }
+
+  &__links {
+    color: $text-light;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    padding: 0 2rem;
+    text-align: center;
+
+    &--style {
+      text-decoration: underline;
+      color: $secondary-dark;
+      font-weight: 700;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $shadow;
+      }
     }
   }
 }
@@ -240,7 +277,26 @@ html {
         }
       }
     }
+
+    &__links {
+      color: $text-dark;
+
+      &--style {
+        color: $text-dark;
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: $primary-light;
+        }
+      }
+    }
   }
+}
+
+.popup__btn--short {
+  height: 2.8rem;
+  margin-bottom: 1px;
 }
 
 //
