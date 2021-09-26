@@ -10,12 +10,22 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
     <!-- FULL POPUP CONTENT CONTAINER -->
     <div class="popup">
-      <header>
+      <header class="popup-header">
+
+        <!-- OPTIONS BUTTON -->
+        <span class="material-icons popup-settings"><a href="/src/html/index.html" target="_blank" class="options-link">
+          settings</a>
+          </span>
         <!-- HEADER CONTENT -->
         <h1 class="popup__header">
           <span class="head__span head__span--1">URL</span>
@@ -52,10 +62,11 @@
           <div class="popup__container--short">
             <input
               type="text"
-              class="popup__url popup__url--short"
+              class="popup__url--short"
               id="copy-url"
               name="copy-url"
               value="Placeholder"
+              disabled
             />
             <!-- ADD SCRIPTS INTO PLACEHOLDER VALUE ATTRIBUTE ABOVE -->
 

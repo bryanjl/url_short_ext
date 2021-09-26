@@ -10,11 +10,16 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
   </head>
   <body class="body-flex">
+    <a href="#header-top">
+      <div class="back-to-top">
+        <span class="material-icons-round"> publish </span>
+      </div>
+    </a>
     <!-------------------- HEADER LOGO ---------------------->
-    <div class="home__header-container">
+    <div class="home__header-container" id="header-top">
       <header class="home__header">
         <h1 class="home__header--logo">
           <span class="head__span head__span--1">URL</span>
@@ -72,6 +77,7 @@
         <div class="grid-container">
           <!-------------------- NAVIGATION ----------------------->
           <nav class="home__nav">
+            <h2 class="home__nav--header">My links</h2>
             <ul class="nav-list">
               <li><a href="#" class="nav-list__item">Home</a></li>
               <li><a href="#" class="nav-list__item">Home</a></li>
@@ -82,45 +88,68 @@
 
           <!------------------- MAIN CONTENT ---------------------->
           <section class="home__main-content">
-            <h2 class="home__about">About</h2>
-            <p class="home__about--text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              fugiat neque officia cum eligendi repellendus pariatur a nobis,
-              sed reiciendis!
+            <h2 class="home__main-content--header">About</h2>
+            <p class="home__main-content--text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum,
+              placeat obcaecati! Ab esse, dolorem omnis eaque optio animi ipsa.
+              Assumenda maiores modi provident obcaecati unde beatae. Accusamus
+              repudiandae aliquam laborum. Ut incidunt non, expedita aliquam
+              facilis repudiandae officia ducimus autem debitis dolor provident
+              perspiciatis fugit nam quos vel odio, ex magni eius, cumque quas
+              consequuntur veniam? Rerum incidunt debitis sequi? Laborum
+              repudiandae aut neque, voluptatibus odit vero necessitatibus vitae
+              natus delectus! Sed doloribus atque ullam ut eveniet aliquam
+              explicabo adipisci dolorem, laboriosam maiores pariatur beatae
+              ducimus deleniti impedit illum voluptatem. Dolorem at numquam
+              nobis.
             </p>
-            <h2 class="home__shorten">Shorten URL's</h2>
+            <p class="home__main-content--text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto eos quibusdam deleniti nesciunt error officia quo optio ad. Nam sunt saepe, eum laudantium rerum explicabo officia totam vero iusto similique.
+              Maxime, sint temporibus id officia quo eligendi ea expedita perferendis et quibusdam sit error accusamus deleniti sunt necessitatibus veritatis eum tempora architecto unde voluptatibus! Esse sequi recusandae ullam error voluptatem.
+              Sunt obcaecati, dolore quam adipisci quae earum a dolorum voluptas molestias quo optio animi aliquid, fugiat praesentium? Omnis, odio adipisci velit aliquam, optio doloremque corrupti consequatur rerum, harum suscipit voluptate.
+            </p>
+            <h2 class="home__main-content--header">Shorten URL's</h2>
             <!----- SHORTEN FORM ----->
             <form action="#" class="short-form">
-              <label for="short-form__origin"
-                >Original URL:
+              <div class="label">
+                <label for="home__short-form--origin">Original URL:</label>
+
+              <div class="home__short-form--origin-container">
                 <input
                   type="email"
-                  class="login-form__user"
-                  id="short-form__origin"
+                  class="home__short-form--origin"
+                  id="home__short-form--origin"
                 />
-              </label>
-              <button class="short-form__button">$</button>
+                <button class="home__short-form--button">
+                  <span class="material-icons-round form-icons">compare_arrows</span>
+                </button>
+              </div>
 
-              <label for="short-form__short"
-                >Short URL:
+              <div class="label">
+                <label for="home__short-form--short">Short URL:</label>
+              </div>
+              <div class="home__short-form--short-container">
                 <input
                   type="password"
-                  class="login-form__pass"
-                  id="short-form__short"
+                  class="home__short-form--short"
+                  id="home__short-form--short"
+                  disabled
                 />
-              </label>
-              <button class="login-form__button">$</button>
+                <button class="home__short-form--button">
+                  <span class="material-icons-round form-icons"> inventory </span>
+                </button>
+              </div>
             </form>
             <!-- END - SHORTEN FORM -->
             <!---------------- END - MAIN CONTENT ------------------->
           </section>
         </div>
       </main>
-      <!--------------------- FOOTER ------------------------>
-      <footer class="home__footer">
-        <a href="#" class="home__footer--link">Tos</a>
-        <a href="#" class="home__footer--link">Privacy</a>
-      </footer>
     </div>
+    <!--------------------- FOOTER ------------------------>
+    <footer class="home__footer">
+      <a href="#" class="home__footer--link">Tos</a> |
+      <a href="#" class="home__footer--link">Privacy</a>
+    </footer>
   </body>
 </html>
