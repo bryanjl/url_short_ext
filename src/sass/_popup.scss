@@ -32,12 +32,8 @@ html {
     cursor: pointer;
 
     .options-link {
-      color: $text-dark;
       text-decoration: none;
-
-      &:hover {
-        color: $primary-light;
-      }
+      transition: all 0.3s;
     }
   }
 
@@ -117,7 +113,6 @@ html {
     width: 100%;
     height: 100%;
     transition: all 0.2s;
-    box-shadow: 0 1px 10px 0px rgba($shadow, 0.3);
 
     border: 0px;
     border-radius: 1rem;
@@ -134,23 +129,22 @@ html {
       width: 100%;
       height: 100%;
       transition: all 0.2s;
-      box-shadow: 0 1px 10px 0px rgba($shadow, 0.3);
 
       border: 0px;
       border-radius: 1rem;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
+
+      box-shadow: inset 2px 2px 6px 0 rgba($shadow, 0.3);
     }
     &:focus {
       outline: none;
-      box-shadow: 0 0 2px 3px $primary-light;
     }
   }
 
   &__btn {
-    background-color: $text-dark;
     width: 5rem;
-    height: 2.9rem;
+    height: 100%;
     margin-left: 0.5rem;
     text-transform: capitalize;
     cursor: pointer;
@@ -166,26 +160,15 @@ html {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 
-    transition: all 0.2s;
-
-    p {
-      color: $white;
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
-    &:hover {
-      background-color: $primary-light;
-    }
-
-    &:not(:last-child) {
-      margin-bottom: 2.5rem;
-    }
+    transition: background-color 0.2s;
 
     &:active {
       box-shadow: none;
       transform: translateY(2px);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2.5rem;
     }
   }
 
@@ -241,6 +224,16 @@ html {
       }
     }
 
+    .popup-settings {
+      .options-link {
+        color: $text-dark;
+
+        &:hover {
+          color: $primary-light;
+        }
+      }
+    }
+
     &__container {
       &--header {
         color: $text-dark;
@@ -249,12 +242,12 @@ html {
 
     &__url {
       background-color: rgba($white, 0.6);
-      box-shadow: 0 1px 10px 0px rgba($shadow, 0.3);
+      box-shadow: inset 2px 2px 6px 0 rgba($shadow, 0.3);
 
       border: 1px solid $gray-med;
 
       &:focus {
-        box-shadow: 0 0 2px 3px $primary-light;
+        box-shadow: inset 0 0 2px 3px $primary-light;
       }
     }
 
@@ -266,7 +259,7 @@ html {
         color: $white;
       }
 
-      &::before {
+      &:hover {
         background-color: $primary-light;
       }
 
@@ -292,11 +285,6 @@ html {
       }
     }
   }
-}
-
-.popup__btn--short {
-  height: 2.8rem;
-  margin-bottom: 1px;
 }
 
 //
@@ -330,6 +318,16 @@ html {
       }
     }
 
+    .popup-settings {
+      .options-link {
+        color: $secondary-dark;
+
+        &:hover {
+          color: $gray-light2;
+        }
+      }
+    }
+
     &__container {
       &--header {
         color: $text-med;
@@ -349,14 +347,14 @@ html {
 
     &__btn {
       background-color: $secondary-dark;
-      box-shadow: 0 3px 8px 0 rgba($shadow, 0.3);
+      box-shadow: 0 3px 8px 0 rgba($shadow, 0.8);
 
       p {
-        color: $text-dark;
+        color: $text-light;
       }
 
-      &::before {
-        background-color: $gray-med;
+      &:hover {
+        background-color: $gray-light2;
       }
 
       &--short:hover,
