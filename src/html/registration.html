@@ -6,7 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>URL Shortener | Registration form</title>
 
-    <link rel="stylesheet" href="/src/css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
   </head>
-  <body></body>
+  <body class="reg">
+      <header class="logo-container">
+        <h1 class="home__header--logo">
+          <span class="head__span head__span--1">URL</span>
+          <span class="head__span head__span--2">Shortener</span>
+          <p class="arrow arrow__left">&larr;</p>
+          <p class="arrow arrow__right">&rarr;</p>
+        </h1>
+      </header>
+
+      <main>
+        <div class="reg-container">
+          <section class="reg__section">
+
+            <div class="reg__section--img-container">
+              <h2 class="reg__section--header">Register Today</h2>
+            </div>
+            <article class="reg__section--article">
+            Thank you for choosing to use this URL Shortener! Simply fill out
+            the required fields below to register for your free account, which
+            will give you access to a curated list of the url's you have
+            shortened along with analytics on a url-by-url basis.
+            </article>
+        </section>
+
+        <section class="reg__section">
+          <form action="#" class="reg__form">
+            <label for="form-email" class="reg__form--label">Email:</label>
+            <input type="email" class="reg__form--input" id="form-email" />
+
+            <label for="form-password" class="reg__form--label">Password:</label>
+            <input
+              type="password"
+              class="reg__form--input"
+              id="form-password"
+            />
+
+            <label for="form-password-confirm" class="reg__form--label">Confirm password:</label>
+              <input
+              type="password"
+              class="reg__form--input"
+              id="form-password-confirm"
+             />
+
+             <button class="reg__form--btn">Register</button>
+            </form>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>

@@ -157,7 +157,7 @@
 
   .login-form {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-end;
     //display: none;
@@ -398,7 +398,7 @@
 // ------- Light Mode -------
 @media (prefers-color-scheme: light) {
   .body-flex {
-    background: url(/img/wave-haikei-large.svg) no-repeat center center fixed;
+    background: url(/img/wave-haikei.svg) no-repeat center center fixed;
     background-size: cover;
 
     .home__footer {
@@ -747,7 +747,7 @@
     }
 
     &__short-form--short {
-      background-color: $gray-dark;
+      background-color: #7a7a7a;
       color: $text-med;
     }
 
