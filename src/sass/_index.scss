@@ -1,5 +1,10 @@
 @use 'variables' as *;
 
+.iframe {
+  width: 100%;
+  height: fit-content;
+}
+
 .loader-container {
   position: fixed;
   left: 0;
@@ -350,6 +355,10 @@
   }
 
   // Origin URL input/button
+  .origin-container {
+    display: flex;
+    justify-content: center;
+  }
   .form-icons {
     font-size: 2.3rem;
   }
@@ -391,6 +400,7 @@
     height: 2.8rem;
     flex-direction: row;
     border-radius: 1rem;
+    width: fit-content;
     animation: pulse 2s infinite ease-in-out;
   }
 
@@ -577,6 +587,7 @@
     }
 
     &__main-content {
+      padding-bottom: 2rem;
       &--header {
         border-bottom: 2px solid $primary-light;
         color: $text-dark;
