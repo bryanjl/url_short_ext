@@ -95,7 +95,6 @@ html {
   justify-content: center;
   align-items: center;
   z-index: 10;
-  display: none;
 }
 .success-container-popup .success-popup {
   display: flex;
@@ -107,6 +106,8 @@ html {
   width: 16rem;
   border-radius: 1rem;
   padding: 1rem;
+  opacity: 0;
+  animation: slide-in 5s;
 }
 .success-container-popup .success-popup .success-header {
   font-size: 2rem;
@@ -134,6 +135,7 @@ html {
   justify-content: center;
   align-items: center;
   z-index: 10;
+  display: none;
 }
 .fail-container-popup .fail-popup {
   display: flex;
@@ -145,6 +147,8 @@ html {
   width: 16rem;
   border-radius: 1rem;
   padding: 1rem;
+  opacity: 0;
+  animation: slide-in 5s;
 }
 .fail-container-popup .fail-popup .fail-header {
   font-size: 2rem;
@@ -1172,6 +1176,27 @@ html {
 @keyframes loader-center {
   50% {
     font-size: 3rem;
+  }
+}
+@keyframes slide-in {
+  0% {
+    transform: translateY(5rem);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-0.5rem);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  92% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(16rem);
+    opacity: 0;
   }
 }
 

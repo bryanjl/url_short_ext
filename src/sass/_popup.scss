@@ -67,7 +67,7 @@ html {
   align-items: center;
   z-index: 10;
 
-  display: none;
+  //display: none;
 
   .success-popup {
     display: flex;
@@ -81,6 +81,9 @@ html {
 
     border-radius: 1rem;
     padding: 1rem;
+
+    opacity: 0;
+    animation: slide-in 5s;
 
     .success-header {
       font-size: 2rem;
@@ -114,7 +117,7 @@ html {
   align-items: center;
   z-index: 10;
 
-  //display: none;
+  display: none;
 
   .fail-popup {
     display: flex;
@@ -128,6 +131,9 @@ html {
 
     border-radius: 1rem;
     padding: 1rem;
+
+    opacity: 0;
+    animation: slide-in 5s;
 
     .fail-header {
       font-size: 2rem;

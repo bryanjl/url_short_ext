@@ -40,3 +40,33 @@
     font-size: 3rem;
   }
 }
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(5rem);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(-0.5rem);
+  }
+
+  // 30% {
+  //   transform: translateY(-0.5rem);
+  // }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  92% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(16rem);
+    opacity: 0;
+  }
+}
