@@ -95,6 +95,7 @@ html {
   justify-content: center;
   align-items: center;
   z-index: 10;
+  animation: background-hidden 0s ease 5s forwards;
 }
 .success-container-popup .success-popup {
   display: flex;
@@ -135,6 +136,7 @@ html {
   justify-content: center;
   align-items: center;
   z-index: 10;
+  animation: background-hidden 0s ease 5s forwards;
   display: none;
 }
 .fail-container-popup .fail-popup {
@@ -1197,6 +1199,14 @@ html {
   100% {
     transform: translateX(16rem);
     opacity: 0;
+  }
+}
+@keyframes background-hidden {
+  to {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
   }
 }
 

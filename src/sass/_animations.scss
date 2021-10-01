@@ -52,10 +52,6 @@
     transform: translateY(-0.5rem);
   }
 
-  // 30% {
-  //   transform: translateY(-0.5rem);
-  // }
-
   50% {
     transform: translateY(0);
   }
@@ -68,5 +64,14 @@
   100% {
     transform: translateX(16rem);
     opacity: 0;
+  }
+}
+
+@keyframes background-hidden {
+  to {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
   }
 }

@@ -67,6 +67,7 @@ html {
   align-items: center;
   z-index: 10;
 
+  animation: background-hidden 0s ease 5s forwards;
   //display: none;
 
   .success-popup {
@@ -117,6 +118,7 @@ html {
   align-items: center;
   z-index: 10;
 
+  animation: background-hidden 0s ease 5s forwards;
   display: none;
 
   .fail-popup {
