@@ -1,0 +1,77 @@
+@use 'variables' as *;
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba($primary-light, 1);
+  }
+
+  70% {
+    box-shadow: 0 0 0 1.5rem rgba($primary-light, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba($primary-light, 0);
+  }
+}
+
+@keyframes loader-left {
+  0% {
+  }
+
+  50% {
+    transform: rotate(-90deg) translatey(-2rem);
+  }
+}
+
+@keyframes loader-right {
+  0% {
+  }
+
+  50% {
+    transform: rotate(90deg) translatey(-2rem);
+  }
+}
+
+@keyframes loader-center {
+  0% {
+  }
+
+  50% {
+    font-size: 3rem;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(5rem);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(-0.5rem);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  92% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(16rem);
+    opacity: 0;
+  }
+}
+
+@keyframes background-hidden {
+  to {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}

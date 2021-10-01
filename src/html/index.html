@@ -10,8 +10,24 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
       rel="stylesheet"
     />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
   </head>
+  <!------------------- LOADER OVERLAY --------------------->
+  <div class="loader-container">
+    <span class="material-icons-round load load-left">
+      vertical_align_bottom
+    </span>
+    <span class="load-center">Loading</span>
+    <span class="material-icons-round load load-right">
+      vertical_align_bottom
+    </span>
+  </div>
+
   <body class="body-flex">
     <a href="#header-top">
       <div class="back-to-top">
@@ -46,24 +62,19 @@
         <!-- Hidden after login -->
         <div class="home__welcome-login">
           <form action="#" class="login-form">
-            <label for="login-form__email"
-              >Email:
-            </label>
-              <input
-                type="email"
-                class="login-form__user"
-                id="login-form__email"
-              />
-            
+            <label for="login-form__email">Email: </label>
+            <input
+              type="email"
+              class="login-form__user"
+              id="login-form__email"
+            />
 
-            <label for="login-form__password"
-              >Password:
-            </label>
-              <input
-                type="password"
-                class="login-form__pass"
-                id="login-form__password"
-              />
+            <label for="login-form__password">Password: </label>
+            <input
+              type="password"
+              class="login-form__pass"
+              id="login-form__password"
+            />
 
             <button class="login-form__button">Login</button>
           </form>
@@ -88,62 +99,14 @@
           <!----------------- END - NAVIGATION -------------------->
 
           <!------------------- MAIN CONTENT ---------------------->
-          <section class="home__main-content">
-            <h2 class="home__main-content--header">About</h2>
-            <p class="home__main-content--text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum,
-              placeat obcaecati! Ab esse, dolorem omnis eaque optio animi ipsa.
-              Assumenda maiores modi provident obcaecati unde beatae. Accusamus
-              repudiandae aliquam laborum. Ut incidunt non, expedita aliquam
-              facilis repudiandae officia ducimus autem debitis dolor provident
-              perspiciatis fugit nam quos vel odio, ex magni eius, cumque quas
-              consequuntur veniam? Rerum incidunt debitis sequi? Laborum
-              repudiandae aut neque, voluptatibus odit vero necessitatibus vitae
-              natus delectus! Sed doloribus atque ullam ut eveniet aliquam
-              explicabo adipisci dolorem, laboriosam maiores pariatur beatae
-              ducimus deleniti impedit illum voluptatem. Dolorem at numquam
-              nobis.
-            </p>
-            <p class="home__main-content--text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto eos quibusdam deleniti nesciunt error officia quo optio ad. Nam sunt saepe, eum laudantium rerum explicabo officia totam vero iusto similique.
-              Maxime, sint temporibus id officia quo eligendi ea expedita perferendis et quibusdam sit error accusamus deleniti sunt necessitatibus veritatis eum tempora architecto unde voluptatibus! Esse sequi recusandae ullam error voluptatem.
-              Sunt obcaecati, dolore quam adipisci quae earum a dolorum voluptas molestias quo optio animi aliquid, fugiat praesentium? Omnis, odio adipisci velit aliquam, optio doloremque corrupti consequatur rerum, harum suscipit voluptate.
-            </p>
-            <h2 class="home__main-content--header">Shorten URL's</h2>
-            <!----- SHORTEN FORM ----->
-            <form action="#" class="short-form">
-              <div class="label">
-                <label for="home__short-form--origin">Original URL:</label>
-
-              <div class="home__short-form--origin-container">
-                <input
-                  type="text"
-                  class="home__short-form--origin"
-                  id="home__short-form--origin"
-                />
-                <button class="home__short-form--button">
-                  <span class="material-icons-round form-icons">compare_arrows</span>
-                </button>
-              </div>
-
-              <div class="label">
-                <label for="home__short-form--short">Short URL:</label>
-              </div>
-              <div class="home__short-form--short-container">
-                <input
-                  type="text"
-                  class="home__short-form--short"
-                  id="home__short-form--short"
-                  disabled
-                />
-                <button class="home__short-form--button">
-                  <span class="material-icons-round form-icons"> inventory </span>
-                </button>
-              </div>
-            </form>
-            <!-- END - SHORTEN FORM -->
-            <!---------------- END - MAIN CONTENT ------------------->
-          </section>
+          <iframe
+            src="about.html"
+            class="iframe"
+            scrolling="no"
+            frameborder="0"
+            onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+            style="height: 200px; width: 100%; border: none; overflow: hidden"
+          ></iframe>
         </div>
       </main>
     </div>
@@ -153,4 +116,14 @@
       <a href="#" class="home__footer--link">Privacy</a>
     </footer>
   </body>
+
+  <script type="text/javascript">
+    jQuery(document).ready(function () {
+      jQuery('#IDofControlFiringResizeEvent').click(function () {
+        var frame = $('#IDofiframeInMainWindow', window.parent.document);
+        var height = jQuery('#IDofContainerInsideiFrame').height();
+        frame.height(height + 15);
+      });
+    });
+  </script>
 </html>

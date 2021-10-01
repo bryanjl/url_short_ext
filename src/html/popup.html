@@ -20,6 +20,38 @@
     
   </head>
   <body>
+<!------------------- LOADER OVERLAY --------------------->
+    <div class="loader-container-popup">
+      <span class="material-icons-round load load-left">
+        vertical_align_bottom
+      </span>
+      <span class="load-center">Loading</span>
+      <span class="material-icons-round load load-right">
+        vertical_align_bottom
+        </span>
+    </div>
+<!------------------- SUCCESS/FAIL OVERLAY --------------------->
+    <div class="success-container-popup">
+      <div class="success-popup">
+        <h2 class="success-header">Success!</h2>
+        <span class="material-icons-round success-check">
+          check_circle_outline
+        </span>
+        <p class="success-message">Your URL was successfully shortened.</p>
+      </div>
+    </div>
+
+
+    <div class="fail-container-popup">
+      <div class="fail-popup">
+        <h2 class="fail-header">Failure</h2>
+        <span class="material-icons-round fail-x">
+          highlight_off
+          </span>
+        <p class="fail-message">Your URL was unable to be shortened</p>
+      </div>
+    </div>
+
     <!-- FULL POPUP CONTENT CONTAINER -->
     <div class="popup">
       <header class="popup-header">
