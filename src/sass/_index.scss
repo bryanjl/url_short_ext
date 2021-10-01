@@ -1,5 +1,42 @@
 @use 'variables' as *;
 
+.loader-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba($shadow, 0.8);
+  color: $primary-light;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+  display: none;
+
+  .load {
+    font-size: 4rem;
+  }
+
+  .load-left {
+    transform: rotate(-90deg);
+    animation: loader-left 3s ease-in-out infinite;
+  }
+
+  .load-center {
+    font-size: 2rem;
+    color: $text-light;
+    animation: loader-center 3s ease-in-out infinite;
+  }
+
+  .load-right {
+    transform: rotate(90deg);
+    animation: loader-right 3s ease-in-out infinite;
+  }
+}
+
 .body-flex {
   min-height: 100vh;
   display: flex;
@@ -353,6 +390,8 @@
     display: flex;
     height: 2.8rem;
     flex-direction: row;
+    border-radius: 1rem;
+    animation: pulse 2s infinite ease-in-out;
   }
 
   &__short-form--short {
@@ -368,7 +407,7 @@
     border-top-right-radius: 0rem;
     border-bottom-right-radius: 0rem;
 
-    box-shadow: inset 2px 2px 6px 0 rgba($shadow, 0.3);
+    box-shadow: 0 0 0 0 rgba($primary-light, 0);
   }
 
   &__short-form--button {

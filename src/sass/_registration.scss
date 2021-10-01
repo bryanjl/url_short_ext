@@ -1,7 +1,7 @@
 @use 'variables' as *;
 
 .reg {
-  background: url(/img/wave-haikei.svg) no-repeat center center fixed;
+  background: url(/img/wave-haikei-large.svg) no-repeat center top fixed;
   background-size: cover;
 
   display: flex;
@@ -57,7 +57,7 @@
 }
 
 .reg__section--article {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: $text-dark;
   margin-bottom: 4rem;
   padding: 0 2rem;
