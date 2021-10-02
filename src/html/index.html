@@ -81,7 +81,16 @@
         </div>
         <p class="login-form__p">
           Need an account?
-          <a href="" class="login-form__register">Register</a> now!
+          <a
+            href="registration.html"
+            class="login-form__register"
+            target="_blank"
+            >Register</a
+          >
+          now!
+          <a href="forgot.html" class="login-form__register" target="_blank"
+            >Forgot password</a
+          >?
         </p>
         <hr class="home__hr" />
         <!-------------------- END - LOGIN ---------------------->
@@ -91,9 +100,22 @@
           <nav class="home__nav">
             <h2 class="home__nav--header">My links</h2>
             <ul class="nav-list">
-              <li><a href="#" class="nav-list__item">Home</a></li>
-              <li><a href="#" class="nav-list__item">Home</a></li>
-              <li><a href="#" class="nav-list__item">Home</a></li>
+              <li>
+                <a
+                  href="about.html"
+                  target="main-content"
+                  class="nav-list__item"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="registration.html"
+                  target="main-content"
+                  class="nav-list__item"
+                  >Link</a
+                >
+              </li>
             </ul>
           </nav>
           <!----------------- END - NAVIGATION -------------------->
@@ -102,10 +124,16 @@
           <iframe
             src="about.html"
             class="iframe"
-            scrolling="no"
+            id="main-content"
+            name="main-content"
             frameborder="0"
-            onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
-            style="height: 200px; width: 100%; border: none; overflow: hidden"
+            style="
+              height: 100%;
+              width: 100%;
+              border: none;
+              overflow: hidden;
+              padding-right: 1rem;
+            "
           ></iframe>
         </div>
       </main>
@@ -116,14 +144,4 @@
       <a href="#" class="home__footer--link">Privacy</a>
     </footer>
   </body>
-
-  <script type="text/javascript">
-    jQuery(document).ready(function () {
-      jQuery('#IDofControlFiringResizeEvent').click(function () {
-        var frame = $('#IDofiframeInMainWindow', window.parent.document);
-        var height = jQuery('#IDofContainerInsideiFrame').height();
-        frame.height(height + 15);
-      });
-    });
-  </script>
 </html>

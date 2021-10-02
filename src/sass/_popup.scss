@@ -68,7 +68,7 @@ html {
   z-index: 10;
 
   animation: background-hidden 0s ease 5s forwards;
-  //display: none;
+  display: none;
 
   .success-popup {
     display: flex;
@@ -241,6 +241,9 @@ html {
       align-items: flex-end;
       margin-bottom: 1rem;
       height: 3rem;
+      border-radius: 1rem;
+
+      animation: pulse 2s infinite;
     }
   }
 

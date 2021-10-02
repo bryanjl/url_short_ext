@@ -401,6 +401,7 @@
     flex-direction: row;
     border-radius: 1rem;
     width: fit-content;
+    margin-bottom: 2rem;
     animation: pulse 2s infinite ease-in-out;
   }
 
@@ -439,7 +440,9 @@
     }
   }
 }
-
+.label label {
+  font-size: 1.4rem;
+}
 //
 //
 //

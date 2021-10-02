@@ -96,6 +96,7 @@ html {
   align-items: center;
   z-index: 10;
   animation: background-hidden 0s ease 5s forwards;
+  display: none;
 }
 .success-container-popup .success-popup {
   display: flex;
@@ -242,6 +243,8 @@ html {
   align-items: flex-end;
   margin-bottom: 1rem;
   height: 3rem;
+  border-radius: 1rem;
+  animation: pulse 2s infinite;
 }
 .popup__url {
   box-sizing: border-box;
@@ -771,6 +774,7 @@ html {
   flex-direction: row;
   border-radius: 1rem;
   width: fit-content;
+  margin-bottom: 2rem;
   animation: pulse 2s infinite ease-in-out;
 }
 .home__short-form--short {
@@ -800,6 +804,10 @@ html {
 .home__short-form--button:active {
   transform: translateY(2px);
   box-shadow: none;
+}
+
+.label label {
+  font-size: 1.4rem;
 }
 
 @media (prefers-color-scheme: light) {
@@ -1169,10 +1177,10 @@ html {
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 #00c3ff;
+    box-shadow: 0 0 0 0 rgba(0, 195, 255, 0);
   }
-  70% {
-    box-shadow: 0 0 0 1.5rem rgba(0, 195, 255, 0);
+  50% {
+    box-shadow: 0 0 0 1rem rgba(0, 195, 255, 0.8);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(0, 195, 255, 0);
