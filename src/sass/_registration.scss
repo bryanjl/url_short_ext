@@ -118,3 +118,101 @@
     }
   }
 }
+
+//
+//
+//
+//
+//
+// LIGHT MODE
+@media (prefers-color-scheme: light) {
+  .reg {
+    background: url(/img/wave-haikei-large.svg) no-repeat center top fixed;
+    background-size: cover;
+  }
+
+  .logo-container {
+    background-color: $secondary-light;
+  }
+
+  .reg-container {
+    background-color: $gray-light;
+  }
+
+  .reg__section {
+    &--header {
+      color: $text-light;
+    }
+  }
+
+  .reg__section--article {
+    color: $text-dark;
+  }
+
+  .reg-form {
+    &--btn {
+      background-color: $gray-dark;
+      color: $text-light;
+
+      &:hover {
+        background-color: $primary-light;
+        color: $text-dark;
+      }
+    }
+  }
+}
+
+//
+//
+//
+//
+//
+// DARK MODE
+@media (prefers-color-scheme: dark) {
+  .reg {
+    background: url(/img/wave-haikei-large-dark.svg) no-repeat center top fixed;
+    background-size: cover;
+  }
+
+  .logo-container {
+    background-color: $primary-dark;
+  }
+
+  .reg-container {
+    background-color: $gray-dark;
+    box-shadow: none;
+  }
+
+  .reg__section {
+    &--header {
+      color: $text-dark;
+    }
+  }
+
+  .reg__section--article {
+    color: $text-light;
+  }
+
+  .reg__form {
+    &--input {
+      background-color: $gray-med2;
+    }
+
+    &--label {
+      color: $text-med;
+    }
+    &--btn {
+      background-color: $secondary-dark;
+      color: $text-dark;
+
+      &:hover {
+        background-color: $gray-med;
+        color: $text-dark;
+      }
+    }
+    &--para {
+      margin: 3rem 6rem 0;
+      text-align: center;
+    }
+  }
+}
