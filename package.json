@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prefix": "postcss --use autoprefixer -b \"last 10 versions\" src/css/style.css -o style.prefix.css",
-    "compress": "sass src/css/style.prefix.css style.css --style compressed",
-    "delete": "del-cli src/css/style.prefix.css src/css/style.css.map",
+    "prefix": "postcss --use autoprefixer -b \"last 10 versions\" src/css/style.css -o src/css/style.prefix.css",
+    "compress": "sass src/css/style.css src/css/style.min.css --style compressed",
+    "delete": "del-cli src/css/style.css.map src/css/style.prefix.css src/css/style.min.css.map",
     "all": "npm-run-all prefix compress delete"
   },
   "author": "Branden Evans & Bryan Lilly",
