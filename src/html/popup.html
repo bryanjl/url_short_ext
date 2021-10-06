@@ -15,13 +15,13 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../css/style.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     
     
   </head>
   <body>
 <!------------------- LOADER OVERLAY --------------------->
-    <div class="loader-container-popup">
+    <div id="loader-container-popup" class="loader-container-popup">
       <span class="material-icons-round load load-left">
         vertical_align_bottom
       </span>
@@ -31,7 +31,7 @@
         </span>
     </div>
 <!------------------- SUCCESS/FAIL OVERLAY --------------------->
-    <div class="success-container-popup">
+    <div id="success-container" class="success-container-popup">
       <div class="success-popup">
         <h2 class="success-header">Success!</h2>
         <span class="material-icons-round success-check">
@@ -57,7 +57,7 @@
       <header class="popup-header">
 
         <!-- OPTIONS BUTTON -->
-        <span class="material-icons popup-settings"><a href="/src/html/index.html" target="_blank" class="options-link">
+        <span class="material-icons popup-settings"><a href="/src/html/options.html" target="_blank" class="options-link">
           settings</a>
           </span>
         <!-- HEADER CONTENT -->
@@ -70,7 +70,7 @@
       </header>
 
       <main>
-        <section class="popup__container">
+        <section id="popup__container" class="popup__container">
           <label for="origin-url">
             <h2 class="popup__container--header">Original URL</h2>
           </label>
@@ -99,7 +99,7 @@
               class="popup__url--short"
               id="copy-url"
               name="copy-url"
-              value="Placeholder"
+              value=""
               disabled
             />
             <!-- ADD SCRIPTS INTO PLACEHOLDER VALUE ATTRIBUTE ABOVE -->
@@ -109,9 +109,9 @@
             </div>
           </div>
 
-        <p class="popup__links">
-          Already a member? <a href="index.html" target="_blank" class="popup__links--style">Sign in</a>. New user? <a href="register.html" class="popup__links--style" target="_blank">Register</a> for free.
-        </p>
+        <!-- <p id="popup__links" class="popup__links">
+          
+        </p> -->
         </section>
       </main>
     </div>
