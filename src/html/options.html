@@ -1,52 +1,149 @@
-<!DOCTYPE html>
+<!DOCTYPE html class="home-html">
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
-</head>
-<body>
-    
-    <canvas id="myChart" width="10" height="10"></canvas>
-<script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-</script>
- 
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener | Home</title>
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/style.min.css" />
+  </head>
+  <!------------------- LOADER OVERLAY --------------------->
+  <div class="loader-container">
+    <span class="material-icons-round load load-left">
+      vertical_align_bottom
+    </span>
+    <span class="load-center">Loading</span>
+    <span class="material-icons-round load load-right">
+      vertical_align_bottom
+    </span>
+  </div>
+
+  <body class="body-flex">
+    <a href="#header-top">
+      <div class="back-to-top">
+        <span class="material-icons-round"> publish </span>
+      </div>
+    </a>
+    <!-------------------- HEADER LOGO ---------------------->
+    <div class="home__header-container" id="header-top">
+      <header class="home__header">
+        <h1 class="home__header--logo">
+          <span class="head__span head__span--1">URL</span>
+          <span class="head__span head__span--2">Shortener</span>
+          <p class="arrow arrow__left">&larr;</p>
+          <p class="arrow arrow__right">&rarr;</p>
+        </h1>
+      </header>
+    </div>
+    <!----------------- END - HEADER LOGO ------------------->
+    <div class="home">
+      <main>
+        <!------------------- WELCOME/LOGOUT -------------------->
+        <!-- Hidden before login -->
+        <div class="home__welcome-logout">
+          <h2 class="home__welcome-logout--text">
+            <span class="welcome">Welcome,</span> "Bryan! -placeholder-"
+          </h2>
+          <a href="" class="home__welcome-logout--link">Logout</a>
+        </div>
+        <!--------------- END - WELCOME/LOGOUT ------------------>
+
+        <!----------------------- LOGIN ------------------------->
+        <!-- Hidden after login -->
+        <div class="home__welcome-login">
+          <form action="#" class="login-form">
+            <label for="login-form__email">Email: </label>
+            <input
+              type="email"
+              class="login-form__user"
+              id="login-form__email"
+            />
+
+            <label for="login-form__password">Password: </label>
+            <input
+              type="password"
+              class="login-form__pass"
+              id="login-form__password"
+            />
+
+            <button class="login-form__button">Login</button>
+          </form>
+        </div>
+        <p class="login-form__p">
+          Need an account?
+          <a
+            href="registration.html"
+            class="login-form__register"
+            target="_blank"
+            >Register</a
+          >
+          now!
+          <a href="forgot.html" class="login-form__register" target="_blank"
+            >Forgot password</a
+          >?
+        </p>
+        <hr class="home__hr" />
+        <!-------------------- END - LOGIN ---------------------->
+
+        <div class="grid-container">
+          <!-------------------- NAVIGATION ----------------------->
+          <nav class="home__nav">
+            <h2 class="home__nav--header">My links</h2>
+            <ul class="nav-list">
+              <li>
+                <a
+                  href="about.html"
+                  target="main-content"
+                  class="nav-list__item"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="registration.html"
+                  target="main-content"
+                  class="nav-list__item"
+                  >Link</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <!----------------- END - NAVIGATION -------------------->
+
+          <!------------------- MAIN CONTENT ---------------------->
+          <iframe
+            src="about.html"
+            class="iframe"
+            id="main-content"
+            name="main-content"
+            frameborder="0"
+            onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'
+            scrolling="no"
+            style="
+              height: 100%;
+              width: 100%;
+              border: none;
+              overflow: hidden;
+              padding-right: 1rem;
+            "
+          ></iframe>
+        </div>
+      </main>
+    </div>
+    <!--------------------- FOOTER ------------------------>
+    <footer class="home__footer">
+      <a href="#" class="home__footer--link">Tos</a> |
+      <a href="#" class="home__footer--link">Privacy</a>
+    </footer>
+  </body>
 </html>
