@@ -47,6 +47,10 @@ const shortenUrl = () => {
 
     let loader = document.getElementById('loader-container-popup');
     let successContainer = document.getElementById('success-container');
+    let finishPulse = document.getElementById('popup__container--short')
+    let fail = document.getElementById('fail-container');
+    finishPulse.classList.remove('short_output_animation');
+    fail.style.display = 'none';
     successContainer.style.display = 'none';
     loader.style.display = 'flex';
 
@@ -59,34 +63,24 @@ const shortenUrl = () => {
 
         headers 
     })
-    .then(response => response.json())
-
+    .then((response) => {
+        if(response.ok){
+            return response.json();
+        } else {
+            throw new error();
+        }
+    })
     .then(json => {
-        // console.log(`https://urlshortenapi.herokuapp.com/${json.data.short}`);
         document.getElementById('copy-url').value = `https://urlshortenapi.herokuapp.com/${json.data.short}`;
         loader.style.display = 'none';
-        successContainer.style.display = 'flex';
-
-        // fetch(url).then((response) => {
-        //     if (response.ok) {
-        //       return response.json();
-        //     } else {
-        //       throw new Error('Something went wrong');
-        //     }
-        //   })
-        //   .then((responseJson) => {
-        //     // Do something with the response
-        //   })
-        //   .catch((error) => {
-        //     console.log(error)
-        //   });
-
-
-        
+        successContainer.style.display = 'flex';       
+        finishPulse.classList.add('short_output_animation');
     })
     .catch(err => {
         console.log(err);
-        let fail = document.getElementById('')
+        
+        loader.style.display = 'none';
+        fail.style.display = 'flex';
     });
 }
 
@@ -94,6 +88,8 @@ const copyToClipboard = () => {
     let urlToCopy = document.getElementById('copy-url').value;
 
     navigator.clipboard.writeText(urlToCopy);
+
+    // alert('copied');
 }
 
 //copy to clipboard button event listener

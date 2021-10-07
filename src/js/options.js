@@ -16,8 +16,8 @@ const loadUser = () => {
             welcomeLogin.style.display = 'none';
             welcomeLogout.style.display = 'flex';
             reigisterForAcct.style.display = 'none';
-            usernameWelcome.innerHTML = result.username;
-            getLinks();
+            usernameWelcome.innerHTML = ' ' + result.username;
+            // getLinks();
         }
     });
 }
@@ -93,11 +93,11 @@ window.onload = loadUser();
 // loadUser();
 
 //event listeners
-let loginBtn = document.getElementById('login-btn');
-loginBtn.addEventListener('click', login);
+// let loginBtn = document.getElementById('login-btn');
+// loginBtn.addEventListener('click', login);
 
-let logoutBtn = document.getElementById('logout-btn');
-logoutBtn.addEventListener('click', logout);
+// let logoutBtn = document.getElementById('logout-btn');
+// logoutBtn.addEventListener('click', logout);
 
 // let registerBtn = document.getElementById('register-btn');
 // registerBtn.addEventListener('click', getJwt);
