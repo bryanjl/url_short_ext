@@ -50,9 +50,9 @@
       <main>
         <!------------------- WELCOME/LOGOUT -------------------->
         <!-- Hidden before login -->
-        <div class="home__welcome-logout">
+        <div id='welcome-logout' class="home__welcome-logout">
           <h2 class="home__welcome-logout--text">
-            <span class="welcome">Welcome,</span> "Bryan! -placeholder-"
+            <span class="welcome">Welcome,</span><span id='username-welcome'></span>
           </h2>
           <a href="" class="home__welcome-logout--link">Logout</a>
         </div>
@@ -60,7 +60,7 @@
 
         <!----------------------- LOGIN ------------------------->
         <!-- Hidden after login -->
-        <div class="home__welcome-login">
+        <div id='welcome-login' class="home__welcome-login">
           <form action="#" class="login-form">
             <label for="login-form__email">Email: </label>
             <input
@@ -79,7 +79,7 @@
             <button class="login-form__button">Login</button>
           </form>
         </div>
-        <p class="login-form__p">
+        <p id='register' class="login-form__p">
           Need an account?
           <a
             href="registration.html"
@@ -145,5 +145,6 @@
       <a href="#" class="home__footer--link">Tos</a> |
       <a href="#" class="home__footer--link">Privacy</a>
     </footer>
+    <script src='../js/options.js'></script>
   </body>
 </html>

@@ -1,3 +1,25 @@
+// let url = 'https://urlshortenapi.herokuapp.com/'; //production server
+let url = 'http://localhost:5000';
+
+//get the user from storage and keep in memory
+let token;
+window.onload = loadUser => {
+
+    chrome.storage.sync.get(['jwt'], (result) => {
+
+        token = result.jwt;
+
+        if(!token){
+            let popupContainer = document.getElementById('popup__container');
+            let signInRegister = document.createElement('p');
+    
+            signInRegister.classList.add('popup__links');
+            signInRegister.innerHTML = 'Already a member? <a href="index.html" target="_blank" class="popup__links--style">Sign in</a>. New user? <a href="registration.html" class="popup__links--style" target="_blank">Register</a> for free.';
+    
+            popupContainer.appendChild(signInRegister);      
+        }
+    })
+}
 
 
 //Get current URL from tab
@@ -8,18 +30,29 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
 });
 
 
-const shortenUrl = () => {
-    let url = 'https://urlshortenapi.herokuapp.com/';
+const shortenUrl = () => {  
 
     let originUrl = document.getElementById('origin-url').value;
 
-    // console.log(originUrl);
-
-    // let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDk4NDgxMWQ5MjNlMDAwNGE3YjMxNiIsImlhdCI6MTYzMjIwODQ0M30.QKGyPCK3sh1ZIM46-CPmTAAcLJfYYbRPsxK78idv1Wc';
-    
-    let headers = {
-        "Content-Type": "application/json"
+    if(!token) {
+        headers = {
+            "Content-Type": "application/json"
+        }
+    } else {
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
     }
+
+    let loader = document.getElementById('loader-container-popup');
+    let successContainer = document.getElementById('success-container');
+    let finishPulse = document.getElementById('popup__container--short')
+    let fail = document.getElementById('fail-container');
+    finishPulse.classList.remove('short_output_animation');
+    fail.style.display = 'none';
+    successContainer.style.display = 'none';
+    loader.style.display = 'flex';
 
     fetch(url, {
         method: 'POST',
@@ -28,16 +61,26 @@ const shortenUrl = () => {
             url: originUrl
         }),
 
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+        headers 
+    })
+    .then((response) => {
+        if(response.ok){
+            return response.json();
+        } else {
+            throw new error();
         }
     })
-    .then(response => response.json())
-
     .then(json => {
-        // console.log(`https://urlshortenapi.herokuapp.com/${json.data.short}`);
         document.getElementById('copy-url').value = `https://urlshortenapi.herokuapp.com/${json.data.short}`;
+        loader.style.display = 'none';
+        successContainer.style.display = 'flex';       
+        finishPulse.classList.add('short_output_animation');
+    })
+    .catch(err => {
+        console.log(err);
+        
+        loader.style.display = 'none';
+        fail.style.display = 'flex';
     });
 }
 
@@ -45,6 +88,8 @@ const copyToClipboard = () => {
     let urlToCopy = document.getElementById('copy-url').value;
 
     navigator.clipboard.writeText(urlToCopy);
+
+    // alert('copied');
 }
 
 //copy to clipboard button event listener
