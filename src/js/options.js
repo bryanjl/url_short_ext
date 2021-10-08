@@ -7,6 +7,7 @@ const loadUser = () => {
     let reigisterForAcct = document.getElementById('register');
     let usernameWelcome = document.getElementById('username-welcome');
 
+    //do global and save to memory!!!
     chrome.storage.sync.get(['jwt', 'username'], (result) => {
         if(Object.keys(result).length === 0){
             welcomeLogin.style.display = 'flex';
@@ -17,16 +18,18 @@ const loadUser = () => {
             welcomeLogout.style.display = 'flex';
             reigisterForAcct.style.display = 'none';
             usernameWelcome.innerHTML = ' ' + result.username;
-            // getLinks();
+            getLinks();
         }
     });
 }
 
+//styling idea -> every other box is a different shade to distinguish between each link
+
 const getLinks = () => {
     let token;
     chrome.storage.sync.get(['jwt'], (result) => {
-        token = result.jwt;
-    
+        token = result.jwt;    //token should be global -> one request
+        
         fetch(`${baseUrl}/auth/getme`, {
             method: 'GET',
     
@@ -37,24 +40,27 @@ const getLinks = () => {
         .then(response => response.json())
         .then(json => {
             json.data.links.forEach((link) => {
-                console.log(link);
+                
                 let linkListItem = document.createElement('li');
                 let aLinkItem = document.createElement('a');
                 aLinkItem.classList.add('nav-list__item');
                 //!!!regex the https:// out of links for display
                 aLinkItem.innerText = link.url;
                 linkListItem.appendChild(aLinkItem);
-                document.getElementById('link-list').appendChild(linkListItem);
+                document.getElementById('nav-list').appendChild(linkListItem);
             });
         })
+        //catch the error here
     });
 }
 
 
 //Login
 const login = () => {
-    let username = document.getElementById('email-input').value;
-    let password = document.getElementById('password-input').value;
+    console.log('here');
+
+    let username = document.getElementById('login-form__email').value;
+    let password = document.getElementById('login-form__password').value;
 
     fetch(`${baseUrl}/auth/login`, {
         method: 'POST',
@@ -93,11 +99,16 @@ window.onload = loadUser();
 // loadUser();
 
 //event listeners
-// let loginBtn = document.getElementById('login-btn');
-// loginBtn.addEventListener('click', login);
+let loginBtn = document.getElementById('login-btn');
+loginBtn.addEventListener('click', login);
 
-// let logoutBtn = document.getElementById('logout-btn');
-// logoutBtn.addEventListener('click', logout);
+let logoutBtn = document.getElementById('logout-btn');
+logoutBtn.addEventListener('click', logout);
 
 // let registerBtn = document.getElementById('register-btn');
 // registerBtn.addEventListener('click', getJwt);
+
+
+
+
+// padding on one link causes the iframe to shift
