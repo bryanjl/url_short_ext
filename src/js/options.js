@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:5000';
-// const baseUrl = 'https://urlshortenapi.herokuapp.com';
+// const baseUrl = 'http://localhost:5000';
+const baseUrl = 'https://urlshortenapi.herokuapp.com';
 
 const loadUser = () => {
     let welcomeLogout = document.getElementById('welcome-logout');

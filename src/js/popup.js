@@ -1,5 +1,5 @@
-// let url = 'https://urlshortenapi.herokuapp.com/'; //production server
-let url = 'http://localhost:5000';
+let url = 'https://urlshortenapi.herokuapp.com/'; //production server
+// let url = 'http://localhost:5000';
 
 //get the user from storage and keep in memory
 let token;
