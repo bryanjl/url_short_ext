@@ -94,8 +94,17 @@ const logout = () => {
     loadUser();
 }
 
+//run iFrame JS
+const iFrameJS = () => {
+    let iFrame = document.getElementById('main-content');
+    iFrame.onload = function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this);
+}
+
+
 //do this onload
 window.onload = loadUser();
+
+
 // loadUser();
 
 //event listeners

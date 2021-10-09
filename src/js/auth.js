@@ -28,7 +28,7 @@ const registration = () => {
             userObj.username = json.username;
             userObj.jwt = json.token;
 
-            // console.log(userObj);
+            console.log(userObj);
             chrome.storage.sync.set(userObj);
         });
 }
