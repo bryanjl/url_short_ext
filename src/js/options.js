@@ -1,3 +1,6 @@
+import { loadAnalyticsPage } from './countryHighlightJS.mjs';
+
+
 const baseUrl = 'http://localhost:5000';
 // const baseUrl = 'https://urlshortenapi.herokuapp.com';
 
@@ -40,12 +43,16 @@ const getLinks = () => {
         .then(response => response.json())
         .then(json => {
             json.data.links.forEach((link) => {
-                
+                // console.log(link);
                 let linkListItem = document.createElement('li');
                 let aLinkItem = document.createElement('a');
                 aLinkItem.classList.add('nav-list__item');
+                aLinkItem.setAttribute('id', link._id);
+                aLinkItem.onclick = displayAnalytics;
                 //!!!regex the https:// out of links for display
                 aLinkItem.innerText = link.url;
+                
+                // console.log(aLinkItem);
                 linkListItem.appendChild(aLinkItem);
                 document.getElementById('nav-list').appendChild(linkListItem);
             });
@@ -54,6 +61,11 @@ const getLinks = () => {
     });
 }
 
+const displayAnalytics = (event) => {
+    // console.log(event.target.id);
+
+    loadAnalyticsPage(event.target.id);
+}
 
 //Login
 const login = () => {
@@ -95,10 +107,10 @@ const logout = () => {
 }
 
 //run iFrame JS
-const iFrameJS = () => {
-    let iFrame = document.getElementById('main-content');
-    iFrame.onload = function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this);
-}
+// const iFrameJS = () => {
+//     let iFrame = document.getElementById('main-content');
+//     iFrame.onload = function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this);
+// }
 
 
 //do this onload
