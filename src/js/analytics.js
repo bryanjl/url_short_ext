@@ -27,7 +27,11 @@ const getAnalyticsData = (linkID) => {
     })
     .then(response => response.json())
     .then(json => {
+        console.log(json.data);
         loadWorldMap(json.data.country_code);
+        loadNumberOfClicks(json.data.visits);
+        loadLinkUrl(json.data.url, `${baseUrl}/${json.data.short}`);
+        loadRefererChart(json.data.referer);
     })
     .catch(err => {
         console.log(err);
@@ -119,4 +123,39 @@ const loadWorldMap = (myJSON) => {
     homeButton.marginBottom = 10;
     homeButton.parent = chart.zoomControl;
     homeButton.insertBefore(chart.zoomControl.plusButton);
+}
+
+const loadNumberOfClicks = (visits) => {
+    let numOfVisits = document.getElementById('number-of-visits');
+    numOfVisits.innerHTML = visits;
+}
+
+const loadLinkUrl = (originUrl, shortUrl) => {
+    let linkUrl = document.getElementById('short-link-url');
+    linkUrl.innerHTML = shortUrl;
+
+    let originalUrl = document.getElementById('original-url');
+    originalUrl.innerHTML = originUrl
+}
+
+const loadRefererChart = (refererObj) => {
+    // console.log(refererArr);
+    // Create chart instance
+    var chart = am4core.create("piechartdiv", am4charts.PieChart);
+
+    // Add and configure Series
+    var pieSeries = chart.series.push(new am4charts.PieSeries());
+    pieSeries.dataFields.value = "visits";
+    pieSeries.dataFields.category = "referer";
+
+    let keys = Object.keys(refererObj)
+    let chartData = [];
+    keys.forEach((key) => {
+      chartData.push({
+          referer: key,
+          visits: refererObj[key]
+      })  
+    })
+
+    chart.data = chartData;
 }
