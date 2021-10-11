@@ -18,21 +18,31 @@ window.onload = loadUser => {
     
             popupContainer.appendChild(signInRegister);      
         }
-    })
+    });
 }
 
 
 //Get current URL from tab
+let documentTitle;
 chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
     let url = tabs[0].url;
+    documentTitle = tabs[0].title;
     // console.log(url);
     document.getElementById('origin-url').value = url;
 });
 
 
 const shortenUrl = () => {  
-
+    //get data for server
     let originUrl = document.getElementById('origin-url').value;
+    //get document title
+    // let documentTitle;
+    // await chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+    //     documentTitle = tabs[0].title;
+    //     console.log(documentTitle);
+    // });
+
+    console.log(documentTitle);
 
     if(!token) {
         headers = {
@@ -45,6 +55,7 @@ const shortenUrl = () => {
         }
     }
 
+    //animation for loading
     let loader = document.getElementById('loader-container-popup');
     let successContainer = document.getElementById('success-container');
     let finishPulse = document.getElementById('popup__container--short')
@@ -58,7 +69,8 @@ const shortenUrl = () => {
         method: 'POST',
 
         body: JSON.stringify({
-            url: originUrl
+            url: originUrl,
+            title: documentTitle
         }),
 
         headers 

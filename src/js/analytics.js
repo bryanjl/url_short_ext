@@ -32,6 +32,7 @@ const getAnalyticsData = (linkID) => {
         loadNumberOfClicks(json.data.visits);
         loadLinkUrl(json.data.url, `${baseUrl}/${json.data.short}`);
         loadRefererChart(json.data.referer);
+        loadTitle(json.data.title);
     })
     .catch(err => {
         console.log(err);
@@ -123,6 +124,11 @@ const loadWorldMap = (myJSON) => {
     homeButton.marginBottom = 10;
     homeButton.parent = chart.zoomControl;
     homeButton.insertBefore(chart.zoomControl.plusButton);
+}
+
+const loadTitle = (websiteTitle) => {
+    let title = document.getElementById('website-title');
+    title.innerHTML = websiteTitle;
 }
 
 const loadNumberOfClicks = (visits) => {
