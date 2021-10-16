@@ -4,7 +4,8 @@ chrome.storage.sync.get(['jwt'], (result) => {
     token = result.jwt;
 });
 
-let baseUrl = `http://localhost:5000`;
+// let baseUrl = `http://localhost:5000`;
+const baseUrl = 'https://urlshortenapi.herokuapp.com';
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
@@ -31,7 +32,7 @@ const getAnalyticsData = (linkID) => {
         disposeCharts();
         loadWorldMap(json.data.country_code);
         loadNumberOfClicks(json.data.visits);
-        loadLinkUrl(json.data.url, `${baseUrl}/${json.data.short}`);
+        loadLinkUrl(json.data.title, json.data.url, `${baseUrl}/${json.data.short}`);
         loadRefererChart(json.data.referer);
         loadVisitsPerDay(json.data.visitsPerDay);
     })
@@ -136,7 +137,10 @@ const loadNumberOfClicks = (visits) => {
     numOfVisits.innerHTML = visits;
 }
 
-const loadLinkUrl = (originUrl, shortUrl) => {
+const loadLinkUrl = (websiteTitle, originUrl, shortUrl) => {
+    let webTitle = document.getElementById('website-title');
+    webTitle.innerHTML = websiteTitle;
+
     let linkUrl = document.getElementById('short-link-url');
     linkUrl.innerHTML = shortUrl;
 

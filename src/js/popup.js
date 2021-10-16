@@ -1,5 +1,5 @@
-// let url = 'https://urlshortenapi.herokuapp.com/'; //production server
-let url = 'http://localhost:5000';
+let url = 'https://urlshortenapi.herokuapp.com/'; //production server
+// let url = 'http://localhost:5000';
 
 //get the user from storage and keep in memory
 let token;
@@ -23,8 +23,10 @@ window.onload = loadUser => {
 
 
 //Get current URL from tab
+let title;
 chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
     let url = tabs[0].url;
+    title = tabs[0].title;
     // console.log(url);
     document.getElementById('origin-url').value = url;
 });
@@ -33,6 +35,9 @@ chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
 const shortenUrl = () => {  
 
     let originUrl = document.getElementById('origin-url').value;
+
+    //get title of page
+  
 
     if(!token) {
         headers = {
@@ -58,7 +63,8 @@ const shortenUrl = () => {
         method: 'POST',
 
         body: JSON.stringify({
-            url: originUrl
+            url: originUrl,
+            title: title
         }),
 
         headers 

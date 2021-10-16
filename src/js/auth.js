@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:5000';
-// const baseUrl = 'https://urlshortenapi.herokuapp.com';
+// const baseUrl = 'http://localhost:5000';
+const baseUrl = 'https://urlshortenapi.herokuapp.com';
 
 const registration = () => {
     let username = document.getElementById('form-email').value;

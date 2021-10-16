@@ -1,8 +1,8 @@
 // import { loadAnalyticsPage } from './countryHighlightJS.mjs';
 
 
-const baseUrl = 'http://localhost:5000';
-// const baseUrl = 'https://urlshortenapi.herokuapp.com';
+// const baseUrl = 'http://localhost:5000';
+const baseUrl = 'https://urlshortenapi.herokuapp.com';
 
 const loadUser = () => {
     let welcomeLogout = document.getElementById('welcome-logout');
@@ -43,14 +43,14 @@ const getLinks = () => {
         .then(response => response.json())
         .then(json => {
             json.data.links.forEach((link) => {
-                // console.log(link);
+                console.log(link);
                 let linkListItem = document.createElement('li');
                 let aLinkItem = document.createElement('a');
                 aLinkItem.classList.add('nav-list__item');
                 aLinkItem.setAttribute('id', link._id);
                 aLinkItem.onclick = displayAnalytics;
                 //!!!regex the https:// out of links for display
-                aLinkItem.innerText = link.url;
+                aLinkItem.innerText = link.title;
                 
                 // console.log(aLinkItem);
                 linkListItem.appendChild(aLinkItem);
