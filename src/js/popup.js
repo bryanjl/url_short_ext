@@ -22,32 +22,20 @@ window.onload = loadUser => {
 }
 
 
-<<<<<<< Updated upstream
-//Get current URL from tab
-chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
-    let url = tabs[0].url;
-    // console.log(url);
-=======
 //Get current URL and title from tab
 let title;
 chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
     let url = tabs[0].url;
     title = tabs[0].title;
->>>>>>> Stashed changes
     document.getElementById('origin-url').value = url;
 });
 
 //API call to shorten URL
 const shortenUrl = () => {  
 
-<<<<<<< Updated upstream
-    let originUrl = document.getElementById('origin-url').value;
-
-=======
     let originUrl = document.getElementById('origin-url').value;  
 
     //use User Token to if available 
->>>>>>> Stashed changes
     if(!token) {
         headers = {
             "Content-Type": "application/json"

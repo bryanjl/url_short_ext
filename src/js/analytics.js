@@ -16,10 +16,6 @@ window.onload = function() {
     );
 }
 
-//Global Variables
-
-
-
 //API call for analytic using link ID
 const getAnalyticsData = (linkID, token) => {
     
@@ -168,7 +164,7 @@ const loadLinkUrl = (websiteTitle, originUrl, shortUrl) => {
 //referer host charts
 const loadRefererChart = (refererObj) => {
     // Create chart instance
-    var chart = am4core.create("piechartdiv", am4charts.PieChart);
+    var chart = am4core.create("referer-chart", am4charts.PieChart);
 
     // Add and configure Series
     var pieSeries = chart.series.push(new am4charts.PieSeries());
