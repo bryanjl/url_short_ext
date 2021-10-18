@@ -5,9 +5,6 @@ const registration = () => {
     let username = document.getElementById('form-email').value;
     let password = document.getElementById('form-password').value;
 
-    // console.log(username, password);
-    // console.log('hello');
-
     fetch(`${baseUrl}/auth/register`, {
         method: 'POST',
 
@@ -20,18 +17,30 @@ const registration = () => {
             "Content-Type": "application/json"
         }
     })
-        .then(response => response.json())
+    .then(response => {
+        if(response.ok){
+            return response.json();
+        } else {
+            throw new Error(response);
+        }
+    })
+    .then(json => {
 
-        .then(json => {
-
-            let userObj = {};
-            userObj.username = json.username;
-            userObj.jwt = json.token;
-
-            console.log(userObj);
-            chrome.storage.sync.set(userObj);
-        });
+        let userObj = {
+            username: json.username,
+            jwt: json.token
+        };
+ 
+        chrome.storage.sync.set(userObj);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 }
 
-let regBtn = document.getElementById('reg-form-btn');
-regBtn.addEventListener('click', registration);
+window.onload = function() {
+    let regBtn = document.getElementById('reg-form-btn');
+    regBtn.addEventListener('click', registration);
+}
+
+

@@ -1,4 +1,4 @@
-let url = 'https://urlshortenapi.herokuapp.com/'; //production server
+let baseURL = 'https://urlshortenapi.herokuapp.com'; //production server
 // let url = 'http://localhost:5000';
 
 //get the user from storage and keep in memory
@@ -14,7 +14,7 @@ window.onload = loadUser => {
             let signInRegister = document.createElement('p');
     
             signInRegister.classList.add('popup__links');
-            signInRegister.innerHTML = 'Already a member? <a href="index.html" target="_blank" class="popup__links--style">Sign in</a>. New user? <a href="registration.html" class="popup__links--style" target="_blank">Register</a> for free.';
+            signInRegister.innerHTML = 'Already a member? <a href="options.html" target="_blank" class="popup__links--style">Sign in</a>. New user? <a href="registration.html" class="popup__links--style" target="_blank">Register</a> for free.';
     
             popupContainer.appendChild(signInRegister);      
         }
@@ -22,18 +22,32 @@ window.onload = loadUser => {
 }
 
 
+<<<<<<< Updated upstream
 //Get current URL from tab
 chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
     let url = tabs[0].url;
     // console.log(url);
+=======
+//Get current URL and title from tab
+let title;
+chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+    let url = tabs[0].url;
+    title = tabs[0].title;
+>>>>>>> Stashed changes
     document.getElementById('origin-url').value = url;
 });
 
-
+//API call to shorten URL
 const shortenUrl = () => {  
 
+<<<<<<< Updated upstream
     let originUrl = document.getElementById('origin-url').value;
 
+=======
+    let originUrl = document.getElementById('origin-url').value;  
+
+    //use User Token to if available 
+>>>>>>> Stashed changes
     if(!token) {
         headers = {
             "Content-Type": "application/json"
@@ -45,6 +59,7 @@ const shortenUrl = () => {
         }
     }
 
+    //HTML animations - success/failue/loading
     let loader = document.getElementById('loader-container-popup');
     let successContainer = document.getElementById('success-container');
     let finishPulse = document.getElementById('popup__container--short')
@@ -54,7 +69,7 @@ const shortenUrl = () => {
     successContainer.style.display = 'none';
     loader.style.display = 'flex';
 
-    fetch(url, {
+    fetch(baseURL, {
         method: 'POST',
 
         body: JSON.stringify({
@@ -71,7 +86,7 @@ const shortenUrl = () => {
         }
     })
     .then(json => {
-        document.getElementById('copy-url').value = `https://urlshortenapi.herokuapp.com/${json.data.short}`;
+        document.getElementById('copy-url').value = `${baseURL}/${json.data.short}`;
         loader.style.display = 'none';
         successContainer.style.display = 'flex';       
         finishPulse.classList.add('short_output_animation');
@@ -89,7 +104,7 @@ const copyToClipboard = () => {
 
     navigator.clipboard.writeText(urlToCopy);
 
-    // alert('copied');
+    //alert/notification URL has been copied
 }
 
 //copy to clipboard button event listener
