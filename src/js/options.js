@@ -70,38 +70,46 @@ const login = () => {
     let username = document.getElementById('login-form__email').value;
     let password = document.getElementById('login-form__password').value;
 
-    fetch(`${baseUrl}/auth/login`, {
-        method: 'POST',
-
-        body: JSON.stringify({
-            username: username,
-            password: password
-        }),
-
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-    .then(response => {
-        if(response.ok){
-            return response.json();
-        } else {
-            throw new Error(response);
-        }
-    })     
-    .then(json => {
-        user = {
-            username: json.username,
-            jwt: json.token
-        };
-        //save the username, jwt to chrome storage
-        chrome.storage.sync.set(user, () => {
-            loadUser();
+    if(!username || !password) {
+        alert('Please enter email and password');
+    } else {
+        fetch(`${baseUrl}/auth/login`, {
+            method: 'POST',
+    
+            body: JSON.stringify({
+                username: username,
+                password: password
+            }),
+    
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => {
+            if(response.ok){
+                return response.json();
+            } else {
+                if(response.status === 404){
+                    throw new Error('User not found')
+                } else {
+                    throw new Error('Server Error')
+                }
+            }
+        })     
+        .then(json => {
+            user = {
+                username: json.username,
+                jwt: json.token
+            };
+            //save the username, jwt to chrome storage
+            chrome.storage.sync.set(user, () => {
+                loadUser();
+            });
+        })
+        .catch(err => {
+            alert(err);
         });
-    })
-    .catch(err => {
-        console.log(err);
-    });
+    }  
 }
 
 //logout and refresh
