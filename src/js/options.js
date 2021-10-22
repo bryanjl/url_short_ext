@@ -44,7 +44,13 @@ const getLinks = () => {
             //set classes and id=linkID for requests
             aLinkItem.classList.add('nav-list__item');
             aLinkItem.setAttribute('id', link._id);
-            aLinkItem.onclick = displayAnalytics;
+            aLinkItem.onclick = function(e) {
+                // let mainContent = document.getElementById('main-content');
+                // mainContent.src = 'index.html';
+                displayAnalytics(e);
+                e.preventDefault();
+            }
+            
             aLinkItem.innerText = link.title;
             //append elements
             linkListItem.appendChild(aLinkItem);
@@ -58,6 +64,7 @@ const getLinks = () => {
 }
 
 const displayAnalytics = (event) => {
+    // console.log(event.target.id);
     //send message to Iframe analytics page -> load analytics
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, {linkID: event.target.id});
@@ -72,44 +79,47 @@ const login = () => {
 
     if(!username || !password) {
         alert('Please enter email and password');
-    } else {
-        fetch(`${baseUrl}/auth/login`, {
-            method: 'POST',
-    
-            body: JSON.stringify({
-                username: username,
-                password: password
-            }),
-    
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        .then(response => {
-            if(response.ok){
-                return response.json();
+        return;
+    } 
+
+    fetch(`${baseUrl}/auth/login`, {
+        method: 'POST',
+
+        body: JSON.stringify({
+            username: username,
+            password: password
+        }),
+
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => {
+        if(response.ok){
+            return response.json();
+        } else {
+            if(response.status === 404){
+                throw new Error('User not found');
+            } else if(response.status === 400) {
+                throw new Error('Incorrect Password');
             } else {
-                if(response.status === 404){
-                    throw new Error('User not found')
-                } else {
-                    throw new Error('Server Error')
-                }
+                throw new Error('Server Error');
             }
-        })     
-        .then(json => {
-            user = {
-                username: json.username,
-                jwt: json.token
-            };
-            //save the username, jwt to chrome storage
-            chrome.storage.sync.set(user, () => {
-                loadUser();
-            });
-        })
-        .catch(err => {
-            alert(err);
+        }
+    })     
+    .then(json => {
+        user = {
+            username: json.username,
+            jwt: json.token
+        };
+        //save the username, jwt to chrome storage
+        chrome.storage.sync.set(user, () => {
+            loadUser();
         });
-    }  
+    })
+    .catch(err => {
+        alert(err);
+    }); 
 }
 
 //logout and refresh

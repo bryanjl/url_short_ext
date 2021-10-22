@@ -1,5 +1,5 @@
-// let baseUrl = `http://localhost:5000`;
-const baseUrl = 'https://urlshortenapi.herokuapp.com';
+let baseUrl = `http://localhost:5000`;
+// const baseUrl = 'https://urlshortenapi.herokuapp.com';
 
 window.onload = function() {
     let token; 
@@ -11,6 +11,7 @@ window.onload = function() {
     //Message for when user clicks on link to be displayed
     chrome.runtime.onMessage.addListener(
         function(request, sender, sendResponse) {
+            console.log(request.linkID, token);
             getAnalyticsData(request.linkID, token);
         }
     );
@@ -18,7 +19,10 @@ window.onload = function() {
 
 //API call for analytic using link ID
 const getAnalyticsData = (linkID, token) => {
-    
+    let aboutPage = document.getElementById('about-page');
+    aboutPage.style.display = 'none';
+
+
     let url = `${baseUrl}/link/${linkID}`;
     
     fetch(url, {
