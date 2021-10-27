@@ -61,7 +61,8 @@ const shortenUrl = () => {
         method: 'POST',
 
         body: JSON.stringify({
-            url: originUrl
+            url: originUrl,
+            title
         }),
 
         headers 

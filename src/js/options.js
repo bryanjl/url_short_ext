@@ -33,7 +33,7 @@ const getLinks = () => {
         if(response.ok){
             return response.json();
         } else {
-            throw new Error(response);
+            throw new Error(`Unable to connect to server: 500`);
         }
     })
     .then(json => {
@@ -59,6 +59,7 @@ const getLinks = () => {
     })
     .catch(err => {
         console.log(err);
+        alert(err);
         //could have error page -> 404 page
     });
 }
@@ -126,6 +127,7 @@ const login = () => {
 const logout = () => {
 
     chrome.storage.sync.clear();
+    user = null;
     loadUser();
 }
 
